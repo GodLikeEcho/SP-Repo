@@ -104,14 +104,14 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FCTracker/LoginViewController.swift"
-            timestampString = "508391829.175138"
+            filePath = "FCTracker/FCHomeViewController.swift"
+            timestampString = "509458414.839377"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "clickLogin(_:)"
-            landmarkType = "5">
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "FCHomeViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

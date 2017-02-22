@@ -62,7 +62,15 @@ class LoginViewController: UIViewController {
                     let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
                     print(dataString)
                     self.PrivLevel = dataString!
-                    
+                    if (self.PrivLevel == "\"u\"" || self.PrivLevel == "\"f\"" || self.PrivLevel == "\"a\"")
+                    {
+                        struct myUser {
+                            
+                            static var globUserName: String = "empty"
+                        }
+                        myUser.globUserName = self.username.text!
+                        
+                    }
                     dispatch_async(dispatch_get_main_queue(), {
                         print(NSThread.isMainThread()) // true (we told it to execute this new block on the main queue)
                         // Execute the code to update your UI (change your view) from here
