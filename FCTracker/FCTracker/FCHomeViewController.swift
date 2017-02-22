@@ -32,8 +32,7 @@ class FCHomeViewController: UIViewController {
         let request = NSMutableURLRequest(URL: url)
         request.HTTPMethod = "POST"
         request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
-        let mystruct = myUser()
-        let UserName: String = myUser.globUserName = self.username.text!
+        let UserName: String = globalUserName
         let fcname: String = fcName.text!
         
         let dictionary = ["UserName": UserName, "fcName": fcname]

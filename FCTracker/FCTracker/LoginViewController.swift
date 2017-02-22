@@ -8,6 +8,7 @@
 
 //import Foundation
 import UIKit
+var globalUserName:String = "x"
 
 class LoginViewController: UIViewController {
     
@@ -64,12 +65,7 @@ class LoginViewController: UIViewController {
                     self.PrivLevel = dataString!
                     if (self.PrivLevel == "\"u\"" || self.PrivLevel == "\"f\"" || self.PrivLevel == "\"a\"")
                     {
-                        struct myUser {
-                            
-                            static var globUserName: String = "empty"
-                        }
-                        myUser.globUserName = self.username.text!
-                        
+                        globalUserName = self.username.text!
                     }
                     dispatch_async(dispatch_get_main_queue(), {
                         print(NSThread.isMainThread()) // true (we told it to execute this new block on the main queue)
