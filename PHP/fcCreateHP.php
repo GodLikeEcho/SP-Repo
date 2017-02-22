@@ -44,45 +44,47 @@
 
   if (strcmp($salt0, $UserName) == 0)
   {
-    $returnError["status"] = "error";
-    $returnError["message"] = "UserName $UserName already exists";
-    echo json_encode($returnError);
-    return;
+    //$returnError["status"] = "error";
+    //$returnError["message"] = "UserName $UserName already exists";
+    //echo json_encode($returnError);
+    //return;
+    if($stmt1 = $mysqli->prepare("UPDATE FoodCart SET fcName = ?, fcAdd1 = ?, fcAdd2 = ?, fcAdd3 =?, fcMon = ?, fcTue = ?, fcWed = ?, fcThu = ?, fcFri = ?, fcSat = ?, fcSun = ?, fcRate = ? WHERE UserName = ?"))
+    {
+        $stmt1->bind_param('sssssssssssss', $fcName, $fcAdd1, $fcAdd2, $fcAdd3, $fcMon, $fcTue, $fcWed, $fcThu, $fcFri, $fcSat, $fcSun, $fcRate, $UserName);
+        if($stmt1->execute()) {
+          $success1 = true;
+          $returnSuccess1["message"] = "Page Updated";
+          echo json_encode($returnSuccess1);
+          return;
+        }
+        else{
+          $returnValues1["message"] = "Unable to update page";
+          echo json_encode($returnValues1);
+          return;
+        }
+      }
+      $stmt1->close();
   }
 
   else
   {
-    $test1 = $mysqli->query("SELECT fcName FROM FoodCart WHERE fcName = '$fcName'");
-    $row1 = mysqli_fetch_array($test1);
-    $salt1 = $row1['fcName'];
-
-    if (strcmp($salt1, $fcName) == 0)
-    {
-      $returnError["status"] = "error";
-      $returnError["message"] = "FoodCart $fcName already in use";
-      echo json_encode($returnError);
-      return;
-    }
-    else {
-
       if($stmt = $mysqli->prepare("INSERT INTO FoodCart (UserName, fcName, fcAdd1, fcAdd2, fcAdd3, fcMon, fcTue, fcWed, fcThu, fcFri, fcSat, fcSun, fcRate)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);"))
         {
           $stmt->bind_param('sssssssssssss', $UserName, $fcName, $fcAdd1, $fcAdd2, $fcAdd3, $fcMon, $fcTue, $fcWed, $fcThu, $fcFri, $fcSat, $fcSun, $fcRate);
           if($stmt->execute()) {
             $success = true;
-            $returnSuccess["message"] = "Account Created";
+            $returnSuccess["message"] = "Page Created";
             echo json_encode($returnSuccess);
             return;
           }
           else{
-            $returnValues["message"] = "Unable to create account";
+            $returnValues["message"] = "Unable to create page";
             echo json_encode($returnValues);
             return;
           }
         }
         $stmt->close();
-      }
   }
 
   $mysqli->close();
