@@ -60,6 +60,32 @@ class CreateAccountViewController: UIViewController {
                     
                     let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
                     print(dataString)
+                    dispatch_async(dispatch_get_main_queue(), {
+                        print(NSThread.isMainThread()) // true (we told it to execute this new block on the main queue)
+                        // Execute the code to update your UI (change your view) from here
+                        
+                        if(self.PrivLevel == "u")
+                        {
+                            let storyBoard : UIStoryboard = self.storyboard!
+                            let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("UTab") as! UITabBarController
+                            self.presentViewController(resultViewController, animated:true, completion:nil)
+                            
+                        }
+                        else if(self.PrivLevel == "f")
+                        {
+                            let storyBoard : UIStoryboard = self.storyboard!
+                            let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("FCTab") as! UITabBarController
+                            self.presentViewController(resultViewController, animated:true, completion:nil)
+                        }
+                        else
+                        {
+                            print("Hit last else")
+                            print(self.PrivLevel)
+                            print(self.PrivLevel == "u")
+                        }
+                        
+                    });
+
                 }
             );
             task.resume()
@@ -72,6 +98,14 @@ class CreateAccountViewController: UIViewController {
 
     }
 
+    @IBAction func clickBack(sender: UIButton) {
+        
+        let storyBoard : UIStoryboard = self.storyboard!
+        let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("LoginVC")
+        self.presentViewController(resultViewController, animated:true, completion:nil)
+        
+    }
+    
     @IBAction func clickSecCon(sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
