@@ -127,29 +127,26 @@ class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     do {
                         let response2 = try NSJSONSerialization.JSONObjectWithData(data2!, options: []) as! [String: String]
                         dispatch_async(dispatch_get_main_queue(), {
-                            print(response2)
-                            self.items.append(response2["Post"]!)
-                            print(self.items[0])
-//                            if (json["Owner"] == "true")
-//                            {
-//                                self.fcEdit.hidden = false
-//                                self.fcSubmit.hidden = false
-//                                self.postField.hidden = false
-//                                self.pfSubmit.hidden = false
-//                            }
-//                            else
-//                            {
-//                                self.fcEdit.hidden = true
-//                                self.fcSubmit.hidden = true
-//                                self.postField.hidden = true
-//                                self.pfSubmit.hidden = true
-//                                
-//                            }
+                            //print( "you are here")
+                            //print(response2)
+                            //print("your are past")
+                            //let i:Int = 0
+                            for (key, value) in response2 {
+                                print("\(key) , \(value)")
+                                self.items.append(value)
+                            }
+                            
+                            for (key, value) in response2 {
+                                //print("\(key) , \(value)")
+                                self.items[Int(key)!-1] = value
+                            }
+
+                            self.tableView.reloadData()
+
                         });
-                        
-                        //}
+        
                     } catch let error as NSError {
-                        print("Failed to load: \(error.localizedDescription)")
+                        print("Failed to load 45: \(error.localizedDescription)")
                     }
                     
                 }
@@ -335,6 +332,13 @@ class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     }
                     let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
                     print(dataString)
+                    
+                    dispatch_async(dispatch_get_main_queue(), {
+                        //self.tableView.reloadData()
+                        //self.tableView.reloadData()
+ 
+                    });
+
                 }
             );
             task.resume()
@@ -344,7 +348,62 @@ class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
             print("error")
             //Access error here
         }
+        
+        let url3:NSURL = NSURL(string: "http://www.hvz-go.com/fcPostPopulate.php")!
+        let session3 = NSURLSession.sharedSession()
+        
+        let request3 = NSMutableURLRequest(URL: url3)
+        request3.HTTPMethod = "POST"
+        request3.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
+        
+        do{
+            let data3 = try NSJSONSerialization.dataWithJSONObject(dictionary, options: .PrettyPrinted)
+            //let data = try NSJSONSerialization.JSONObjectWi(dictionary, options: .mutableContainers) as? [String:Any]
+            let task3 = session3.uploadTaskWithRequest(request3, fromData: data3, completionHandler:
+                {(data3,response3,error) in
+                    
+                    guard let _:NSData = data3, let _:NSURLResponse = response3  where error == nil else {
+                        print("error43")
+                        return
+                    }
+                    //let str = "{\"names\": [\"Bob\", \"Tim\", \"Tina\"]}"
+                    //let data = response(using: String.Encoding.utf8, allowLossyConversion: false)!
+                    do {
+                        let response3 = try NSJSONSerialization.JSONObjectWithData(data3!, options: []) as! [String: String]
+                        dispatch_async(dispatch_get_main_queue(), {
+                            //print(response3)
+                            
+                            for (key, value) in response3 {
+                                print("\(key) , \(value)")
+                                self.items.append(value)
+                            }
+                            
+                            for (key, value) in response3 {
+                                //print("\(key) , \(value)")
+                                self.items[Int(key)!-1] = value
+                            }
+                            
+                            self.tableView.reloadData()
+                            
+                        });
+                        
+                        //}
+                    } catch let error as NSError {
+                        print("Failed to load: \(error.localizedDescription)")
+                    }
+                    
+                }
+            );
+            task3.resume()
+        }
+        catch {
+            
+            print("error")
+            //Access error here
+        }
+        
 
     }
+
 }
 
