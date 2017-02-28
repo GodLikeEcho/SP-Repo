@@ -9,6 +9,8 @@
 import UIKit
 
 class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var items:[String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,7 +102,66 @@ class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
             //Access error here
         }
         
+        let url2:NSURL = NSURL(string: "http://www.hvz-go.com/fcPostPopulate.php")!
+        let session2 = NSURLSession.sharedSession()
         
+        let request2 = NSMutableURLRequest(URL: url2)
+        request2.HTTPMethod = "POST"
+        request2.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
+        //let UserName: String = globalUserName
+        //let fcname: String = fcName.text!
+        
+        //let dictionary = ["UserName": UserName, "fcName": fcname]
+        do{
+            let data2 = try NSJSONSerialization.dataWithJSONObject(dictionary, options: .PrettyPrinted)
+            //let data = try NSJSONSerialization.JSONObjectWi(dictionary, options: .mutableContainers) as? [String:Any]
+            let task2 = session2.uploadTaskWithRequest(request2, fromData: data2, completionHandler:
+                {(data2,response2,error) in
+                    
+                    guard let _:NSData = data2, let _:NSURLResponse = response2  where error == nil else {
+                        print("error23")
+                        return
+                    }
+                    //let str = "{\"names\": [\"Bob\", \"Tim\", \"Tina\"]}"
+                    //let data = response(using: String.Encoding.utf8, allowLossyConversion: false)!
+                    do {
+                        let response2 = try NSJSONSerialization.JSONObjectWithData(data2!, options: []) as! [String: String]
+                        dispatch_async(dispatch_get_main_queue(), {
+                            print(response2)
+                            self.items.append(response2["Post"]!)
+                            print(self.items[0])
+//                            if (json["Owner"] == "true")
+//                            {
+//                                self.fcEdit.hidden = false
+//                                self.fcSubmit.hidden = false
+//                                self.postField.hidden = false
+//                                self.pfSubmit.hidden = false
+//                            }
+//                            else
+//                            {
+//                                self.fcEdit.hidden = true
+//                                self.fcSubmit.hidden = true
+//                                self.postField.hidden = true
+//                                self.pfSubmit.hidden = true
+//                                
+//                            }
+                        });
+                        
+                        //}
+                    } catch let error as NSError {
+                        print("Failed to load: \(error.localizedDescription)")
+                    }
+                    
+                }
+            );
+            task2.resume()
+        }
+        catch {
+            
+            print("error")
+            //Access error here
+        }
+
 
     }
 
@@ -133,7 +194,7 @@ class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet var pfSubmit: UIButton!
  
     @IBOutlet var pageScrollView: UIScrollView!
-    var items: [String] = ["We ", "Heart NSLineBreakMode.ByWordWrapping NSLineBreakMode.ByWordWrapping NSLineBreakMode.ByWordWrapping NSLineBreakMode.ByWordWrapping", "Swift"]
+    //var items: [String] = ["We ", "Heart NSLineBreakMode.ByWordWrapping NSLineBreakMode.ByWordWrapping NSLineBreakMode.ByWordWrapping NSLineBreakMode.ByWordWrapping", "Swift"]
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
