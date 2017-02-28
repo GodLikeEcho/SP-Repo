@@ -8,11 +8,15 @@
 
 import UIKit
 
-class FCHomeViewController: UIViewController {
+class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        pageScrollView.contentSize = CGSizeMake(self.view.frame.width, self.view.frame.height+1000)
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        
         fcName.userInteractionEnabled = false
         fcAdd1.userInteractionEnabled = false
         fcAdd2.userInteractionEnabled = false
@@ -68,11 +72,15 @@ class FCHomeViewController: UIViewController {
                             {
                                 self.fcEdit.hidden = false
                                 self.fcSubmit.hidden = false
+                                self.postField.hidden = false
+                                self.pfSubmit.hidden = false
                             }
                             else
                             {
                                 self.fcEdit.hidden = true
                                 self.fcSubmit.hidden = true
+                                self.postField.hidden = true
+                                self.pfSubmit.hidden = true
                                 
                             }
                         });
@@ -81,20 +89,8 @@ class FCHomeViewController: UIViewController {
                     } catch let error as NSError {
                         print("Failed to load: \(error.localizedDescription)")
                     }
-                    //let json = try NSJSONSerialization.dataWithJSONObject(with: data, options: .PrettyPrinted) as? [String:Any]
-                    //let dataString = try? NSJSONSerialization.JSONObjectWithData(data!, options: []) as? [String: Any]
-                    //let dataString = try NSJSONSerialization.dataWithJSONObject(with: response!, options: .PrettyPrinted)
-                    //let dic = NSJSONSerialization.JSONObjectWithData(response, options: nil) as NSDictionary
-                    //jsonDictionary = try NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.MutableContainers) as? NSDictionary
-                    //let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
-                    //print("This is it")
-                    //print(UserName)
-                    //print(fcname)
-                    //print(dataString)
-                    
-                    //self.fcName.text = dict["fcName"]
-                    //self.fcName.text = dataString as? String
-                                    }
+
+                }
             );
             task.resume()
         }
@@ -103,6 +99,8 @@ class FCHomeViewController: UIViewController {
             print("error")
             //Access error here
         }
+        
+        
 
     }
 
@@ -130,6 +128,54 @@ class FCHomeViewController: UIViewController {
     @IBOutlet var fcEdit: UIButton!
     @IBOutlet var fcSubmit: UIButton!
     
+    @IBOutlet var tableView: UITableView!
+    @IBOutlet var postField: UITextField!
+    @IBOutlet var pfSubmit: UIButton!
+ 
+    @IBOutlet var pageScrollView: UIScrollView!
+    var items: [String] = ["We ", "Heart NSLineBreakMode.ByWordWrapping NSLineBreakMode.ByWordWrapping NSLineBreakMode.ByWordWrapping NSLineBreakMode.ByWordWrapping", "Swift"]
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
+    }
+
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+        
+        //let item = items[indexPath.row]
+        cell.textLabel?.text = "Item: \(items[indexPath.row])"
+        cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        cell.textLabel?.numberOfLines = 0;
+        
+        return cell
+    }
+    
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        var returnValue = CGFloat()
+        
+        if (items.count > 0) {
+            let stringData = items[indexPath.row] as NSString
+            let constraintRect = CGSize(width: 280.0, height: CGFloat.max)
+            //get height of the string used
+            let boundingBox = stringData.boundingRectWithSize(constraintRect, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(15.0)], context: nil)
+            return boundingBox.height + CGFloat(85.0)
+        }
+        else{
+            returnValue = CGFloat(85.0);
+        }
+        return returnValue;
+    }
+    
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+
+
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("You selected cell #\(indexPath.row)!")
+    }
     
     @IBAction func clickEdit(sender: UIButton) {
         fcName.userInteractionEnabled = true
@@ -202,6 +248,42 @@ class FCHomeViewController: UIViewController {
         fcRate.userInteractionEnabled = false
 
     }
-    
+    @IBAction func clickpfSubmit(sender: UIButton) {
+        
+        let UserName: String = globalUserName
+        let fcname: String = fcName.text!
+        let post: String = postField.text!
+        
+        let url:NSURL = NSURL(string: "http://www.hvz-go.com/fcPostInsert.php")!
+        let session = NSURLSession.sharedSession()
+        
+        let request = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "POST"
+        request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
+        
+        let dictionary = [ "UserName": UserName, "fcName": fcname, "Post": post ]
+        do{
+            let data = try NSJSONSerialization.dataWithJSONObject(dictionary, options: .PrettyPrinted)
+            
+            let task = session.uploadTaskWithRequest(request, fromData: data, completionHandler:
+                {(data,response,error) in
+                    
+                    guard let _:NSData = data, let _:NSURLResponse = response  where error == nil else {
+                        print("error")
+                        return
+                    }
+                    let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                    print(dataString)
+                }
+            );
+            task.resume()
+        }
+        catch {
+            
+            print("error")
+            //Access error here
+        }
+
+    }
 }
 
