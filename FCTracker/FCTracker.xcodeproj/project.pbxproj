@@ -14,6 +14,7 @@
 		F41D22261E3AB79E00F91D31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F41D22241E3AB79E00F91D31 /* LaunchScreen.storyboard */; };
 		F41D222E1E3AB90400F91D31 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41D222D1E3AB90400F91D31 /* LoginViewController.swift */; };
 		F46490701E4D764600F9B4F1 /* UHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F464906F1E4D764600F9B4F1 /* UHomeViewController.swift */; };
+		F4B4C2961E663443004B91C9 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B4C2951E663443004B91C9 /* CustomTableViewCell.swift */; };
 		F4BE22CF1E4C2CBD00FD0FF0 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BE22CE1E4C2CBD00FD0FF0 /* CreateAccountViewController.swift */; };
 		F4BE22D21E4C318E00FD0FF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4BE22D01E4C318E00FD0FF0 /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -28,6 +29,7 @@
 		F41D22271E3AB79E00F91D31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F41D222D1E3AB90400F91D31 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F464906F1E4D764600F9B4F1 /* UHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UHomeViewController.swift; sourceTree = "<group>"; };
+		F4B4C2951E663443004B91C9 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		F4BE22CE1E4C2CBD00FD0FF0 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		F4BE22D11E4C318E00FD0FF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,6 +70,7 @@
 				F41D221B1E3AB79E00F91D31 /* FCHomeViewController.swift */,
 				F464906F1E4D764600F9B4F1 /* UHomeViewController.swift */,
 				F41D221D1E3AB79E00F91D31 /* SettingsViewController.swift */,
+				F4B4C2951E663443004B91C9 /* CustomTableViewCell.swift */,
 				F4BE22D01E4C318E00FD0FF0 /* Main.storyboard */,
 				F41D22221E3AB79E00F91D31 /* Assets.xcassets */,
 				F41D22241E3AB79E00F91D31 /* LaunchScreen.storyboard */,
@@ -150,6 +153,7 @@
 				F4BE22CF1E4C2CBD00FD0FF0 /* CreateAccountViewController.swift in Sources */,
 				F41D222E1E3AB90400F91D31 /* LoginViewController.swift in Sources */,
 				F41D221E1E3AB79E00F91D31 /* SettingsViewController.swift in Sources */,
+				F4B4C2961E663443004B91C9 /* CustomTableViewCell.swift in Sources */,
 				F46490701E4D764600F9B4F1 /* UHomeViewController.swift in Sources */,
 				F41D221A1E3AB79E00F91D31 /* AppDelegate.swift in Sources */,
 				F41D221C1E3AB79E00F91D31 /* FCHomeViewController.swift in Sources */,
