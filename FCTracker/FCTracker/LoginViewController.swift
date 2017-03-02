@@ -8,7 +8,7 @@
 
 //import Foundation
 import UIKit
-var globalUserName:String = "x"
+var globalUserName:String = ""
 
 class LoginViewController: UIViewController {
     
