@@ -329,6 +329,13 @@
                                             <action selector="clickpfSubmit:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Cuu-MG-RIH"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8tB-dC-ZIS">
+                                        <rect key="frame" x="21" y="233" width="97" height="30"/>
+                                        <state key="normal" title="Favorite"/>
+                                        <connections>
+                                            <action selector="clickFav:" destination="9pv-A4-QxB" eventType="touchUpInside" id="WLI-iT-sYM"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </scrollView>
                         </subviews>

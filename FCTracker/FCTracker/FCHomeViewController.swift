@@ -409,6 +409,65 @@ class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
 
     }
+    @IBAction func clickFav(sender: UIButton) {
+        
+        //let UserName: String = globalUserName
+        var fcname: String = fcName.text!
+        
+        if(globalUserLevel == "u" || globalUserLevel == "a")
+        {
+            fcname = globalFCSearch
+        }
+
+        
+        let url:NSURL = NSURL(string: "http://www.hvz-go.com/fcSetFav.php")!
+        let session = NSURLSession.sharedSession()
+        
+        let request = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "POST"
+        request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
+        
+        //print (globalUserName)
+        //print(fcname)
+        //print("HERE")
+        
+        //let data = "data=Hi".dataUsingEncoding(NSUTF8StringEncoding)
+        let dictionary = ["UserName": globalUserName, "fcName": fcname]
+        do{
+            let data = try NSJSONSerialization.dataWithJSONObject(dictionary, options: .PrettyPrinted)
+            //let json = NSString(data: data, encoding: NSUTF8StringEncoding)
+            
+            let task = session.uploadTaskWithRequest(request, fromData: data, completionHandler:
+                {(data,response,error) in
+                    
+                    guard let _:NSData = data, let _:NSURLResponse = response  where error == nil else {
+                        print("error")
+                        return
+                    }
+                    
+                    let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                    print(dataString)
+                    //self.PrivLevel = dataString!
+//                    dispatch_async(dispatch_get_main_queue(), {
+//                        print(NSThread.isMainThread()) // true (we told it to execute this new block on the main queue)
+//                        // Execute the code to update your UI (change your view) from here
+//                        
+//                        print("Temp")
+//                    });
+                    
+                }
+            );
+            
+            task.resume()
+        }
+        catch {
+            
+            print("error")
+            //Access error here
+        }
+
+        
+    }
 
 }
 
