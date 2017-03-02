@@ -9,6 +9,7 @@
 //import Foundation
 import UIKit
 var globalUserName:String = ""
+var globalUserLevel:String = ""
 
 class LoginViewController: UIViewController {
     
@@ -73,6 +74,7 @@ class LoginViewController: UIViewController {
                         
                         if(self.PrivLevel == "\"u\"")
                         {
+                            globalUserLevel = "u"
                             let storyBoard : UIStoryboard = self.storyboard!
                             let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("UTab") as! UITabBarController
                             self.presentViewController(resultViewController, animated:true, completion:nil)
@@ -80,6 +82,7 @@ class LoginViewController: UIViewController {
                         }
                         else if(self.PrivLevel == "\"f\"")
                         {
+                            globalUserLevel = "f"
                             let storyBoard : UIStoryboard = self.storyboard!
                             let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("FCTab") as! UITabBarController
                             self.presentViewController(resultViewController, animated:true, completion:nil)
@@ -87,6 +90,7 @@ class LoginViewController: UIViewController {
                         }
                         else if (self.PrivLevel == "\"a\"")
                         {
+                            globalUserLevel = "a"
                             let storyBoard : UIStoryboard = self.storyboard!
                             let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("CreatAccountVC") as! CreateAccountViewController
                             self.presentViewController(resultViewController, animated:true, completion:nil)

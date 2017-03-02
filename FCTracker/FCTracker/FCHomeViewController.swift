@@ -39,7 +39,12 @@ class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         request.HTTPMethod = "POST"
         request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
         let UserName: String = globalUserName
-        let fcname: String = fcName.text!
+        var fcname: String = fcName.text!
+        
+        if(globalUserLevel == "u" || globalUserLevel == "a")
+        {
+            fcname = globalFCSearch
+        }
         
         let dictionary = ["UserName": UserName, "fcName": fcname]
         do{

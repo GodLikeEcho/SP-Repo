@@ -9,6 +9,8 @@
 //import Foundation
 import UIKit
 
+var globalFCSearch:String = ""
+
 class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var scrollView: UIScrollView!
@@ -56,6 +58,7 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if fcFavorites.count > 0 && indexPath.row <= count - 1 {
             print(indexPath.row)
             cell.set(fName[indexPath.row], Locaton: fLocation[indexPath.item], Hours: fHours[indexPath.item], Rate: fRate[indexPath.item])
+            //globalFCSearch = fName[indexPath.row]
         }
         else {
             cell.set("Temp", Locaton: "Temp", Hours: "Temp", Rate: "Temp")
@@ -68,6 +71,12 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("You selected cell #\(indexPath.row)!")
+        //let cell = tableView.cellForRowAtIndexPath(indexPath)
+        globalFCSearch = fName[indexPath.row]
+        print(globalFCSearch)
+        let storyBoard : UIStoryboard = self.storyboard!
+        let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("FCTab") as! UITabBarController
+        self.presentViewController(resultViewController, animated:true, completion:nil)
     }
     
     func populateCells(value:String)
