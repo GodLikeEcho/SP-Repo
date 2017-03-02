@@ -336,6 +336,13 @@
                                             <action selector="clickFav:" destination="9pv-A4-QxB" eventType="touchUpInside" id="WLI-iT-sYM"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dk6-xf-6rk">
+                                        <rect key="frame" x="21" y="262" width="97" height="30"/>
+                                        <state key="normal" title="Write Review"/>
+                                        <connections>
+                                            <action selector="clickWriteReview:" destination="9pv-A4-QxB" eventType="touchUpInside" id="TPf-VJ-1XQ"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -368,6 +375,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="750" y="-320"/>
+        </scene>
+        <!--Fc Write Review Controller-->
+        <scene sceneID="oo4-Eh-Okd">
+            <objects>
+                <viewController storyboardIdentifier="writeReview" id="VBh-WT-qOf" customClass="fcWriteReviewController" customModule="FCTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="km6-0L-qZA"/>
+                        <viewControllerLayoutGuide type="bottom" id="3sv-Vr-Ofu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ijl-ka-dQY">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ics-Ud-82j">
+                                <rect key="frame" x="52" y="114" width="352" height="29"/>
+                                <segments>
+                                    <segment title="1 Star"/>
+                                    <segment title="2 Stars"/>
+                                    <segment title="3 Stars"/>
+                                    <segment title="4 Stars"/>
+                                    <segment title="5 Stars"/>
+                                </segments>
+                                <connections>
+                                    <action selector="clickStars:" destination="VBh-WT-qOf" eventType="valueChanged" id="PU3-KU-U7e"/>
+                                </connections>
+                            </segmentedControl>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8DX-V0-BJh">
+                                <rect key="frame" x="52" y="165" width="352" height="311"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Food Cart Rating:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="APs-Ax-10H">
+                                <rect key="frame" x="52" y="74" width="135" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ClM-nK-cvL">
+                                <rect key="frame" x="355" y="484" width="49" height="30"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="clickSubmit:" destination="VBh-WT-qOf" eventType="touchUpInside" id="4dt-8a-hQK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="reviewText" destination="8DX-V0-BJh" id="oxF-0R-tZO"/>
+                        <outlet property="segStars" destination="Ics-Ud-82j" id="Ec7-yK-sEJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4vs-ST-k77" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1434" y="-520"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">

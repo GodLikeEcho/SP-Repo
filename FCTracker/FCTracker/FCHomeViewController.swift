@@ -468,6 +468,14 @@ class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         
     }
+    @IBAction func clickWriteReview(sender: UIButton) {
+        
+        globalFCSearch = fcName.text!
+
+        let storyBoard : UIStoryboard = self.storyboard!
+        let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("writeReview") as! fcWriteReviewController
+        self.presentViewController(resultViewController, animated:true, completion:nil)
+    }
 
 }
 
