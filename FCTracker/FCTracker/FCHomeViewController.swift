@@ -73,7 +73,7 @@ class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
                             self.fcFri.text = json["fcFri"]
                             self.fcSat.text = json["fcSat"]
                             self.fcSun.text = json["fcSun"]
-                            self.fcRate.text = json["fcRate"]
+                            //self.fcRate.text = json["fcRate"]
                             //self.fcName.text = dataString as? String
                             if (json["Owner"] == "true")
                             {
@@ -163,7 +163,7 @@ class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
             print("error")
             //Access error here
         }
-
+        getRating()
 
     }
 
@@ -459,6 +459,81 @@ class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
             );
             
             task.resume()
+        }
+        catch {
+            
+            print("error")
+            //Access error here
+        }
+
+        
+    }
+    
+    func getRating() {
+        
+        var ratings:[String] = []
+        var rate:Int = 0
+        var count = 0
+        var found = true
+        let url5:NSURL = NSURL(string: "http://www.hvz-go.com/fcGetRating.php")!
+        let session5 = NSURLSession.sharedSession()
+        
+        let request5 = NSMutableURLRequest(URL: url5)
+        request5.HTTPMethod = "POST"
+        request5.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
+        
+        let dictionary = ["fcName": fcName.text!]
+        
+        do{
+            let data5 = try NSJSONSerialization.dataWithJSONObject(dictionary, options: .PrettyPrinted)
+            //let data = try NSJSONSerialization.JSONObjectWi(dictionary, options: .mutableContainers) as? [String:Any]
+            let task5 = session5.uploadTaskWithRequest(request5, fromData: data5, completionHandler:
+                {(data5,response5,error) in
+                    
+                    guard let _:NSData = data5, let _:NSURLResponse = response5  where error == nil else {
+                        print("error43")
+                        return
+                    }
+                    //let str = "{\"names\": [\"Bob\", \"Tim\", \"Tina\"]}"
+                    //let data = response(using: String.Encoding.utf8, allowLossyConversion: false)!
+                    do {
+                        let response5 = try NSJSONSerialization.JSONObjectWithData(data5!, options: []) as! [String: String]
+                        dispatch_async(dispatch_get_main_queue(), {
+                            //print(response3)
+                            
+                            for (key, value) in response5 {
+                                print("\(key) , \(value)")
+                                ratings.append(value)
+                                if(value == "False")
+                                {
+                                    found = false
+                                }
+                            }
+                            if found == true {
+                                for (key, value) in response5 {
+                                    //print("\(key) , \(value)")
+                                    //self.items[Int(key)!-1] = value
+                                    rate += Int(value)!
+                                    count += 1
+                                }
+                                rate = rate/count
+                                self.fcRate.text = String(rate)
+                            }
+                            else {
+                                self.fcRate.text = "0"
+                            }
+                            self.tableView.reloadData()
+                            
+                        });
+                        
+                        //}
+                    } catch let error as NSError {
+                        print("Failed to load: \(error.localizedDescription)")
+                    }
+                    
+                }
+            );
+            task5.resume()
         }
         catch {
             

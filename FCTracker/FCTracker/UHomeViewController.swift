@@ -15,6 +15,8 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var reviewTableView: UITableView!
+    @IBOutlet var feedTableView: UITableView!
     
     var fcFavorites: [String] = []//["FC!!!", "fc42" , "fc42" , "Food Cart Name"]
     var fName: [String] = []
@@ -24,6 +26,15 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var fDay: String = "fcMon"
     var count: Int = 0
     
+    var fcReviews: [String] = []//["FC!!!", "fc42" , "fc42" , "Food Cart Name"]
+    var frName: [String] = []
+    var frPost: [String] = []
+    var frRate: [String] = []
+    var rcount: Int = 0
+    
+    var items:[String] = []
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -31,6 +42,11 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = 75
+        reviewTableView.dataSource = self
+        reviewTableView.delegate = self
+        feedTableView.dataSource = self
+        feedTableView.delegate = self
+        
         getFav(globalUserName)
         //populateCells(fcFavorites, Day: fDay)
     }
@@ -43,30 +59,64 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fcFavorites.count
+        var count:Int = 0
+        if tableView == self.tableView {
+            count = fcFavorites.count
+        }
+        
+        if tableView == self.reviewTableView {
+            count =  0//sampleData1.count
+        }
+        if tableView == self.feedTableView {
+            count =  0//sampleData1.count
+        }
+        return count
+        //return fcFavorites.count
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        var cell:UITableViewCell?
+        
+        if tableView == self.tableView {
         let cell:CustomTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("customCell", forIndexPath: indexPath) as! CustomTableViewCell
-        //let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! CustomTableViewCell
-        //let row = indexPath.row
-        //print(cell2)
-        //let x: Int = 0
-//        while x < count {
-//            cell.set(fName[x], Locaton: fLocation[x], Hours: fHours[x], Rate: fRate[x])
-//        }
-        if fcFavorites.count > 0 && indexPath.row <= count - 1 {
-            print(indexPath.row)
-            cell.set(fName[indexPath.row], Locaton: fLocation[indexPath.item], Hours: fHours[indexPath.item], Rate: fRate[indexPath.item])
-            //globalFCSearch = fName[indexPath.row]
+            
+            if fcFavorites.count > 0 && indexPath.row <= count - 1 {
+                print(indexPath.row)
+                cell.set(fName[indexPath.row], Locaton: fLocation[indexPath.item], Hours: fHours[indexPath.item], Rate: fRate[indexPath.item])
+            }
+            else {
+                cell.set("Temp", Locaton: "Temp", Hours: "Temp", Rate: "Temp")
+            }
+            return cell
         }
-        else {
-            cell.set("Temp", Locaton: "Temp", Hours: "Temp", Rate: "Temp")
+        
+        if tableView == self.reviewTableView {
+            let cell:CustomReviewTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("customCell", forIndexPath: indexPath) as! CustomReviewTableViewCell
+            
+            if frPost.count > 0 && indexPath.row <= count - 1 {
+                print(indexPath.row)
+                cell.set(frName[indexPath.row], Post: frPost[indexPath.item], Rate: frRate[indexPath.item])
+                //globalFCSearch = fName[indexPath.row]
+            }
+            else {
+                cell.set("Temp", Post: "Temp", Rate: "Temp")
+            }
+            return cell
         }
-        //cell.set(fName[count], Locaton: fLocation[count], Hours: fHours[count], Rate: fRate[count])
+        
+        if tableView == self.feedTableView {
+            let cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+            
+            //let item = items[indexPath.row]
+            cell.textLabel?.text = "Item: \(items[indexPath.row])"
+            cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
+            cell.textLabel?.numberOfLines = 0;
+            
+            return cell
 
-        //cell.set(fName[indexPath.row], Locaton: fLocation[indexPath.row], Hours: fHours[indexPath.row], Rate: fRate[indexPath.row])
-        return cell
+        }
+
+        return cell!
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -74,21 +124,22 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //let cell = tableView.cellForRowAtIndexPath(indexPath)
         globalFCSearch = fName[indexPath.row]
         print(globalFCSearch)
-        let storyBoard : UIStoryboard = self.storyboard!
-        let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("FCTab") as! UITabBarController
-        self.presentViewController(resultViewController, animated:true, completion:nil)
+        if tableView == self.tableView {
+            let storyBoard : UIStoryboard = self.storyboard!
+            let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("FCTab") as! UITabBarController
+            self.presentViewController(resultViewController, animated:true, completion:nil)
+        }
     }
     
-    func populateCells(value:String)
-    {
+    func populateCells(value:String) {
         self.fName.append("User has no favorites")
         self.fLocation.append("")
         self.fHours.append("")
         self.fRate.append("")
         self.tableView.reloadData()
         self.count += 1
-
     }
+    
     func populateCells(Favorites: [String], Day: String) {
         for index in Favorites
         {
