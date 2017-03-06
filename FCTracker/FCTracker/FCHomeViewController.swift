@@ -476,6 +476,14 @@ class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("writeReview") as! fcWriteReviewController
         self.presentViewController(resultViewController, animated:true, completion:nil)
     }
+    
+    @IBAction func clickGotoReviews(sender: UIButton) {
+        
+        globalFCSearch = fcName.text!
+        let storyBoard : UIStoryboard = self.storyboard!
+        let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("viewReview") as! fcReviewController
+        self.presentViewController(resultViewController, animated:true, completion:nil)
+    }
 
 }
 
