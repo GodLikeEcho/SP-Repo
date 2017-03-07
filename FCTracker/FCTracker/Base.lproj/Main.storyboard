@@ -194,7 +194,7 @@
                                         <rect key="frame" x="67" y="703" width="293" height="212"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedCell" rowHeight="60" id="5dO-xa-mjR" customClass="CustomTableViewCell" customModule="FCTracker" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedCell" rowHeight="60" id="5dO-xa-mjR">
                                                 <rect key="frame" x="0.0" y="28" width="293" height="60"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5dO-xa-mjR" id="SJh-0y-RWG">

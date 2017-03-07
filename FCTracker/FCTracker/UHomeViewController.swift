@@ -6,7 +6,7 @@
 //  Copyright © 2017 Clint Jellesed. All rights reserved.
 //
 
-//import Foundation
+//import Foundation //fcGetLastPost.php
 import UIKit
 
 var globalFCSearch:String = ""
@@ -49,6 +49,7 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         getFav(globalUserName)
         getReview("fc42")
+        getLastPost("fc42")
         //populateCells(fcFavorites, Day: fDay)
     }
     
@@ -69,7 +70,7 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
             count =  frPost.count//sampleData1.count
         }
         if tableView == self.feedTableView {
-            count =  0//sampleData1.count
+            count =  items.count//sampleData1.count
         }
         return count
         //return fcFavorites.count
@@ -104,8 +105,8 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         if tableView == self.feedTableView {
-            let cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
-            
+            let cell:UITableViewCell = self.feedTableView.dequeueReusableCellWithIdentifier("feedCell")! as UITableViewCell
+            print(items[indexPath.row])
             //let item = items[indexPath.row]
             cell.textLabel?.text = "Item: \(items[indexPath.row])"
             cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
@@ -134,6 +135,19 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
             }
             else{
                 returnValue = CGFloat(85.0);
+            }
+            if tableView == self.feedTableView {
+                if (items.count > 0) {
+                    let stringData = items[indexPath.row] as NSString
+                    let constraintRect = CGSize(width: 280.0, height: CGFloat.max)
+                    //get height of the string used
+                    let boundingBox = stringData.boundingRectWithSize(constraintRect, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(15.0)], context: nil)
+                    return boundingBox.height + CGFloat(85.0)
+                }
+                else{
+                    returnValue = CGFloat(85.0);
+                }
+
             }
         }
         return returnValue;
@@ -388,5 +402,66 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
             //Access error here
         }
         
+    }
+    
+    func getLastPost(fcname: String) { //fcGetLastPost.php
+        let url6:NSURL = NSURL(string: "http://www.hvz-go.com/fcPostPopulate.php")!
+        let session6 = NSURLSession.sharedSession()
+    
+        let request6 = NSMutableURLRequest(URL: url6)
+        request6.HTTPMethod = "POST"
+        request6.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
+        //let UserName: String = globalUserName
+        //let fcname: String = fcName.text!
+    
+        let dictionary = ["UserName": "Temp", "fcName": fcname]
+        do{
+            let data6 = try NSJSONSerialization.dataWithJSONObject(dictionary, options: .PrettyPrinted)
+            //let data = try NSJSONSerialization.JSONObjectWi(dictionary, options: .mutableContainers) as? [String:Any]
+            let task6 = session6.uploadTaskWithRequest(request6, fromData: data6, completionHandler:
+                {(data6,response6,error) in
+    
+                    guard let _:NSData = data6, let _:NSURLResponse = response6  where error == nil else {
+                        print("error23")
+                        return
+                    }
+                    //let str = "{\"names\": [\"Bob\", \"Tim\", \"Tina\"]}"
+                    //let data = response(using: String.Encoding.utf8, allowLossyConversion: false)!
+                    do {
+                        let response6 = try NSJSONSerialization.JSONObjectWithData(data6!, options: []) as! [String: String]
+                        dispatch_async(dispatch_get_main_queue(), {
+                            print( "you are here")
+                            //print(response2)
+                            //print("your are past")
+                            //let i:Int = 0
+                            for (key, value) in response6 {
+                                print("\(key) , \(value)")
+                                self.items.append(value)
+                            }
+    
+                            for (key, value) in response6 {
+                                //print("\(key) , \(value)")
+                                self.items[Int(key)!-1] = value
+                            }
+    
+                            self.feedTableView.reloadData()
+    
+                        });
+    
+                    }
+                    catch let error as NSError {
+                        print("Failed to load 45: \(error.localizedDescription)")
+                    }
+    
+                }
+            );
+        task6.resume()
+    }
+    
+    catch {
+        print("error")
+        //Access error here
+    }
+
     }
 }

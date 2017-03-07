@@ -79,7 +79,7 @@ class fcReviewController: UIViewController, UITableViewDelegate, UITableViewData
             let constraintRect = CGSize(width: 280.0, height: CGFloat.max)
             //get height of the string used
             let boundingBox = stringData.boundingRectWithSize(constraintRect, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(15.0)], context: nil)
-            return boundingBox.height + CGFloat(30.0)
+            return boundingBox.height + CGFloat(45.0)
         }
         else{
             returnValue = CGFloat(85.0);
