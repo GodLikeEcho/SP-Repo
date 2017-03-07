@@ -118,6 +118,32 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return cell!
     }
     
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        var returnValue = CGFloat()
+        
+        if tableView == self.tableView {
+            returnValue = CGFloat(85.0);
+        }
+        if tableView == self.reviewTableView {
+            if (frPost.count > 0) {
+                let stringData = frPost[indexPath.row] as NSString
+                let constraintRect = CGSize(width: 280.0, height: CGFloat.max)
+                //get height of the string used
+                let boundingBox = stringData.boundingRectWithSize(constraintRect, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(15.0)], context: nil)
+                return boundingBox.height + CGFloat(45.0)
+            }
+            else{
+                returnValue = CGFloat(85.0);
+            }
+        }
+        return returnValue;
+    }
+    
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+
+    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("You selected cell #\(indexPath.row)!")
         //let cell = tableView.cellForRowAtIndexPath(indexPath)
