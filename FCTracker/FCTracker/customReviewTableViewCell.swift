@@ -18,6 +18,11 @@ class CustomReviewTableViewCell: UITableViewCell {
     @IBOutlet var reviewTextView: UITextView!
     @IBOutlet var fcRate: UILabel!
     
+    @IBOutlet var fcName2: UILabel!
+    @IBOutlet var reviewTextView2: UITextView!
+    @IBOutlet var fcRate2: UILabel!
+    
+    
     let lightGreen = UIColor(red: 0.5, green: 1.0, blue: 0.5, alpha: 1.0)
     let lightRed = UIColor(red: 1.0, green: 0.9, blue: 0.9, alpha: 1.0)
     
@@ -35,5 +40,14 @@ class CustomReviewTableViewCell: UITableViewCell {
         fcRate.text = Rate
         contentView.backgroundColor = lightGreen
     }
+    
+    func set2(Name:String, Post:String, Rate:String){
+        
+        fcName2.text = Name
+        reviewTextView2.text = Post
+        fcRate2.text = Rate
+        contentView.backgroundColor = lightGreen
+    }
+
 }
 

@@ -120,13 +120,57 @@
                                         <rect key="frame" x="67" y="362" width="293" height="311"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reviewCell" id="KT5-OI-kWN">
-                                                <rect key="frame" x="0.0" y="28" width="293" height="44"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reviewCell" rowHeight="90" id="KT5-OI-kWN" customClass="CustomReviewTableViewCell" customModule="FCTracker" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="293" height="90"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KT5-OI-kWN" id="29B-wg-00X">
-                                                    <rect key="frame" x="0.0" y="0.0" width="293" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="293" height="90"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikX-8h-6LM">
+                                                            <rect key="frame" x="5" y="8" width="45" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iie-D9-RzT">
+                                                            <rect key="frame" x="236" y="8" width="49" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOX-rO-33p">
+                                                            <rect key="frame" x="174" y="8" width="54" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="9fc-uT-ukK">
+                                                            <rect key="frame" x="8" y="29" width="277" height="53"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="Iie-D9-RzT" firstAttribute="trailing" secondItem="9fc-uT-ukK" secondAttribute="trailing" id="9iL-a0-QKg"/>
+                                                        <constraint firstItem="9fc-uT-ukK" firstAttribute="leading" secondItem="29B-wg-00X" secondAttribute="leadingMargin" id="AtQ-ze-EwQ"/>
+                                                        <constraint firstItem="Iie-D9-RzT" firstAttribute="trailing" secondItem="29B-wg-00X" secondAttribute="trailingMargin" id="GAa-nm-nbD"/>
+                                                        <constraint firstItem="9fc-uT-ukK" firstAttribute="top" secondItem="Iie-D9-RzT" secondAttribute="bottom" id="S80-7t-gCV"/>
+                                                        <constraint firstItem="ikX-8h-6LM" firstAttribute="top" secondItem="29B-wg-00X" secondAttribute="topMargin" id="Uwq-jo-lzL"/>
+                                                        <constraint firstItem="Iie-D9-RzT" firstAttribute="leading" secondItem="oOX-rO-33p" secondAttribute="trailing" constant="8" symbolic="YES" id="Vfo-50-otC"/>
+                                                        <constraint firstItem="ikX-8h-6LM" firstAttribute="baseline" secondItem="oOX-rO-33p" secondAttribute="baseline" id="VlU-89-N9M"/>
+                                                        <constraint firstItem="oOX-rO-33p" firstAttribute="baseline" secondItem="Iie-D9-RzT" secondAttribute="baseline" id="hJp-Hg-h2P"/>
+                                                        <constraint firstItem="ikX-8h-6LM" firstAttribute="leading" secondItem="29B-wg-00X" secondAttribute="leadingMargin" constant="-3" id="ni0-hB-bZp"/>
+                                                        <constraint firstAttribute="bottomMargin" secondItem="9fc-uT-ukK" secondAttribute="bottom" constant="-0.5" id="yeq-3I-lqj"/>
+                                                    </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="fcName2" destination="ikX-8h-6LM" id="gC2-g9-A12"/>
+                                                    <outlet property="fcRate2" destination="Iie-D9-RzT" id="fVS-y8-sWU"/>
+                                                    <outlet property="reviewTextView2" destination="9fc-uT-ukK" id="2da-IU-PR5"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>

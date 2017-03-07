@@ -48,6 +48,7 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         feedTableView.delegate = self
         
         getFav(globalUserName)
+        getReview("fc42")
         //populateCells(fcFavorites, Day: fDay)
     }
     
@@ -65,7 +66,7 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         if tableView == self.reviewTableView {
-            count =  0//sampleData1.count
+            count =  frPost.count//sampleData1.count
         }
         if tableView == self.feedTableView {
             count =  0//sampleData1.count
@@ -91,15 +92,13 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         if tableView == self.reviewTableView {
-            let cell:CustomReviewTableViewCell = self.tableView.dequeueReusableCellWithIdentifier("customCell", forIndexPath: indexPath) as! CustomReviewTableViewCell
-            
-            if frPost.count > 0 && indexPath.row <= count - 1 {
+            let cell:CustomReviewTableViewCell = self.reviewTableView.dequeueReusableCellWithIdentifier("reviewCell", forIndexPath: indexPath) as! CustomReviewTableViewCell
+            if frPost.count > 0 && indexPath.row <= rcount - 1 {
                 print(indexPath.row)
-                cell.set(frName[indexPath.row], Post: frPost[indexPath.item], Rate: frRate[indexPath.item])
-                //globalFCSearch = fName[indexPath.row]
+                cell.set2(frName[indexPath.row], Post: frPost[indexPath.item], Rate: frRate[indexPath.item])
             }
             else {
-                cell.set("Temp", Post: "Temp", Rate: "Temp")
+                cell.set2("Temp", Post: "Temp", Rate: "Temp")
             }
             return cell
         }
@@ -268,4 +267,100 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
     }
     
+    func getReview(fcName:String)
+    {
+        let url3:NSURL = NSURL(string: "http://www.hvz-go.com/fcPopulateReviewCell.php")!
+        let session3 = NSURLSession.sharedSession()
+        
+        let request3 = NSMutableURLRequest(URL: url3)
+        request3.HTTPMethod = "POST"
+        request3.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
+        //let UserName: String = globalUserName
+        //let fcname: String = fcName.text!
+        
+        let dictionary = ["fcName": fcName]
+        //print(dictionary)
+        do{
+            let data3 = try NSJSONSerialization.dataWithJSONObject(dictionary, options: .PrettyPrinted)
+            //let data = try NSJSONSerialization.JSONObjectWi(dictionary, options: .mutableContainers) as? [String:Any]
+            let task3 = session3.uploadTaskWithRequest(request3, fromData: data3, completionHandler:
+                {(data3,response3,error) in
+                    
+                    guard let _:NSData = data3, let _:NSURLResponse = response3  where error == nil else {
+                        print("error23")
+                        return
+                    }
+                    //let str = "{\"names\": [\"Bob\", \"Tim\", \"Tina\"]}"
+                    //let data = response(using: String.Encoding.utf8, allowLossyConversion: false)!
+                    do {
+                        let response3 = try NSJSONSerialization.JSONObjectWithData(data3!, options: []) as! [String: String]
+                        dispatch_async(dispatch_get_main_queue(), {
+                            //print( "you are here")
+                            print(response3)
+                            //print("your are past")
+                            //let i:Int = 0
+                            if(response3["UserName"] == "False") // becomes u1
+                            {
+                                self.fcReviews.append("False")
+                                self.frName.append("Null")
+                                self.frPost.append("Food Cart has no reviews")
+                                self.frRate.append("Null")
+                                //self.populateCells("False")
+                            }
+                            else {
+                                var searchCharacter: Character = "p"
+                                var loc = 0;
+                                for (key, value) in response3 {
+                                    print("\(key) , \(value)")
+                                    
+                                    searchCharacter = "u"
+                                    if key.lowercaseString.characters.contains(searchCharacter) && key != "UserName" {
+                                        self.frName.append(response3[key]!)
+                                    }
+                                    searchCharacter = "p"
+                                    if key.lowercaseString.characters.contains(searchCharacter) && key != "UserName" {
+                                        self.frPost.append(response3[key]!)
+                                    }
+                                    searchCharacter = "r"
+                                    if key.lowercaseString.characters.contains(searchCharacter) && key != "UserName" {
+                                        self.frRate.append(response3[key]!)
+                                    }
+                                    self.rcount += 1
+                                    //self.fcFavorites.append(value)
+                                }
+                                //                                    for (key, value) in response3 {
+                                //                                    //print("\(key) , \(value)")
+                                //                                    searchCharacter = "p"
+                                //                                    if key.lowercaseString.characters.contains(searchCharacter) {
+                                //                                        self.fPost[loc] = value
+                                //                                    }
+                                //                                    searchCharacter = "r"
+                                //                                    searchCharacter = "r"
+                                //                                    if key.lowercaseString.characters.contains(searchCharacter) {
+                                //                                        self.fRate[loc] = value
+                                //                                    }
+                                //                                        loc += 1
+                                //                                }
+                                
+                                //self.populateCells(self.fcFavorites, Day: self.fDay)
+                            }
+                            self.reviewTableView.reloadData()
+                            
+                        });
+                        
+                    } catch let error as NSError {
+                        print("Failed to load 45: \(error.localizedDescription)")
+                    }
+                    
+                }
+            );
+            task3.resume()
+        }
+        catch {
+            
+            print("error")
+            //Access error here
+        }
+        
+    }
 }
