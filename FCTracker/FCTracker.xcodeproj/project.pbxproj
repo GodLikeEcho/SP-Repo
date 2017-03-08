@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F404FF5E1E6E9F0E0004D66F /* CustomPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F404FF5D1E6E9F0E0004D66F /* CustomPostCell.swift */; };
 		F41D221A1E3AB79E00F91D31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41D22191E3AB79E00F91D31 /* AppDelegate.swift */; };
 		F41D221C1E3AB79E00F91D31 /* FCHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41D221B1E3AB79E00F91D31 /* FCHomeViewController.swift */; };
 		F41D221E1E3AB79E00F91D31 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41D221D1E3AB79E00F91D31 /* SettingsViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F404FF5D1E6E9F0E0004D66F /* CustomPostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPostCell.swift; sourceTree = "<group>"; };
 		F41D22161E3AB79E00F91D31 /* FCTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FCTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F41D22191E3AB79E00F91D31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F41D221B1E3AB79E00F91D31 /* FCHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCHomeViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				F41D221D1E3AB79E00F91D31 /* SettingsViewController.swift */,
 				F4B4C2951E663443004B91C9 /* CustomTableViewCell.swift */,
 				F4B4C29D1E68B00A004B91C9 /* customReviewTableViewCell.swift */,
+				F404FF5D1E6E9F0E0004D66F /* CustomPostCell.swift */,
 				F4BE22D01E4C318E00FD0FF0 /* Main.storyboard */,
 				F41D22221E3AB79E00F91D31 /* Assets.xcassets */,
 				F41D22241E3AB79E00F91D31 /* LaunchScreen.storyboard */,
@@ -166,6 +169,7 @@
 				F4B4C29E1E68B00A004B91C9 /* customReviewTableViewCell.swift in Sources */,
 				F41D221E1E3AB79E00F91D31 /* SettingsViewController.swift in Sources */,
 				F4B4C2961E663443004B91C9 /* CustomTableViewCell.swift in Sources */,
+				F404FF5E1E6E9F0E0004D66F /* CustomPostCell.swift in Sources */,
 				F46490701E4D764600F9B4F1 /* UHomeViewController.swift in Sources */,
 				F41D221A1E3AB79E00F91D31 /* AppDelegate.swift in Sources */,
 				F41D221C1E3AB79E00F91D31 /* FCHomeViewController.swift in Sources */,

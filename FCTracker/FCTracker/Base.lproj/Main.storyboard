@@ -44,13 +44,13 @@
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Gc6-qa-zCf">
                                         <rect key="frame" x="67" y="53" width="293" height="287"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="customCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="customCell" rowHeight="75" id="3DQ-ej-avA" customClass="CustomTableViewCell" customModule="FCTracker" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="293" height="75"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3DQ-ej-avA" id="M0T-kP-bP1">
-                                                    <rect key="frame" x="0.0" y="0.0" width="293" height="75"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="293" height="74.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sN6-Ko-0pQ">
@@ -130,13 +130,13 @@
                                     </tableView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WdO-wC-NfD">
                                         <rect key="frame" x="67" y="362" width="293" height="311"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reviewCell" rowHeight="90" id="KT5-OI-kWN" customClass="CustomReviewTableViewCell" customModule="FCTracker" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="293" height="90"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KT5-OI-kWN" id="29B-wg-00X">
-                                                    <rect key="frame" x="0.0" y="0.0" width="293" height="90"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="293" height="89.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikX-8h-6LM">
@@ -194,13 +194,40 @@
                                         <rect key="frame" x="67" y="703" width="293" height="212"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedCell" rowHeight="60" id="5dO-xa-mjR">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="feedCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedCell" rowHeight="60" id="5dO-xa-mjR" customClass="CustomPostCell" customModule="FCTracker" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="293" height="60"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5dO-xa-mjR" id="SJh-0y-RWG">
-                                                    <rect key="frame" x="0.0" y="0.0" width="293" height="59.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="293" height="60"/>
                                                     <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2ES-ms-kto">
+                                                            <rect key="frame" x="51" y="8" width="234" height="44"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="As9-kr-jNa">
+                                                            <rect key="frame" x="8" y="8" width="41" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="2ES-ms-kto" firstAttribute="centerY" secondItem="SJh-0y-RWG" secondAttribute="centerY" id="4Yt-mm-Jka"/>
+                                                        <constraint firstItem="As9-kr-jNa" firstAttribute="top" secondItem="SJh-0y-RWG" secondAttribute="topMargin" id="FDp-eQ-5LZ"/>
+                                                        <constraint firstItem="As9-kr-jNa" firstAttribute="leading" secondItem="SJh-0y-RWG" secondAttribute="leadingMargin" id="GFN-Xe-gKq"/>
+                                                        <constraint firstItem="2ES-ms-kto" firstAttribute="trailing" secondItem="SJh-0y-RWG" secondAttribute="trailingMargin" id="Tyu-BP-kYp"/>
+                                                        <constraint firstItem="As9-kr-jNa" firstAttribute="top" secondItem="2ES-ms-kto" secondAttribute="top" id="Xe1-52-Who"/>
+                                                        <constraint firstItem="2ES-ms-kto" firstAttribute="leading" secondItem="As9-kr-jNa" secondAttribute="trailing" constant="2" id="qbH-mV-XMX"/>
+                                                    </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="fcName2" destination="As9-kr-jNa" id="vUZ-Zh-iXV"/>
+                                                    <outlet property="fcPost2" destination="2ES-ms-kto" id="t90-Ul-uVZ"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
                                         <connections>

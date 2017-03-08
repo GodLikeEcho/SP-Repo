@@ -50,6 +50,7 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         getFav(globalUserName)
         getReview("fc42")
         getLastPost("fc42")
+        //self.feedTableView.reloadData()
         //populateCells(fcFavorites, Day: fDay)
     }
     
@@ -70,6 +71,7 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
             count =  frPost.count//sampleData1.count
         }
         if tableView == self.feedTableView {
+            //print(items)
             count =  items.count//sampleData1.count
         }
         return count
@@ -105,12 +107,15 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         if tableView == self.feedTableView {
-            let cell:UITableViewCell = self.feedTableView.dequeueReusableCellWithIdentifier("feedCell")! as UITableViewCell
+            let cell:CustomPostCell = self.feedTableView.dequeueReusableCellWithIdentifier("feedCell", forIndexPath: indexPath) as! CustomPostCell
             print(items[indexPath.row])
             //let item = items[indexPath.row]
-            cell.textLabel?.text = "Item: \(items[indexPath.row])"
-            cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
-            cell.textLabel?.numberOfLines = 0;
+            if items.count > 0 && indexPath.row <= items.count - 1 {
+                cell.set2("Temp", Post: items[indexPath.row])
+            }
+            else {
+                cell.set2("Temp", Post: "There is no post atm")
+            }
             
             return cell
 
@@ -147,6 +152,7 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 else{
                     returnValue = CGFloat(85.0);
                 }
+                //returnValue = CGFloat(85.0);
 
             }
         }
