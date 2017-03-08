@@ -11,6 +11,7 @@ import UIKit
 class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var items:[String] = []
+    var foodCart:String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,138 +33,9 @@ class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         fcSun.userInteractionEnabled = false
         fcRate.userInteractionEnabled = false
         
-        let url:NSURL = NSURL(string: "http://www.hvz-go.com/fcPopulateHome.php")!
-        let session = NSURLSession.sharedSession()
-        
-        let request = NSMutableURLRequest(URL: url)
-        request.HTTPMethod = "POST"
-        request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
-        let UserName: String = globalUserName
-        var fcname: String = fcName.text!
-        
-        if(globalUserLevel == "u" || globalUserLevel == "a")
-        {
-            fcname = globalFCSearch
+        if globalNew == false {
+            populateHome()
         }
-        
-        let dictionary = ["UserName": UserName, "fcName": fcname]
-        do{
-            let data = try NSJSONSerialization.dataWithJSONObject(dictionary, options: .PrettyPrinted)
-            //let data = try NSJSONSerialization.JSONObjectWi(dictionary, options: .mutableContainers) as? [String:Any]
-            let task = session.uploadTaskWithRequest(request, fromData: data, completionHandler:
-                {(data,response,error) in
-                    
-                    guard let _:NSData = data, let _:NSURLResponse = response  where error == nil else {
-                        print("error")
-                        return
-                    }
-                    //let str = "{\"names\": [\"Bob\", \"Tim\", \"Tina\"]}"
-                    //let data = response(using: String.Encoding.utf8, allowLossyConversion: false)!
-                    do {
-                        let json = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String: String]
-                        dispatch_async(dispatch_get_main_queue(), {
-                            self.fcName.text = json["fcName"]
-                            self.fcAdd1.text = json["fcAdd1"]
-                            self.fcAdd2.text = json["fcAdd2"]
-                            self.fcAdd3.text = json["fcAdd3"]
-                            self.fcMon.text = json["fcMon"]
-                            self.fcTue.text = json["fcTue"]
-                            self.fcWed.text = json["fcWed"]
-                            self.fcThu.text = json["fcThu"]
-                            self.fcFri.text = json["fcFri"]
-                            self.fcSat.text = json["fcSat"]
-                            self.fcSun.text = json["fcSun"]
-                            //self.fcRate.text = json["fcRate"]
-                            //self.fcName.text = dataString as? String
-                            if (json["Owner"] == "true")
-                            {
-                                self.fcEdit.hidden = false
-                                self.fcSubmit.hidden = false
-                                self.postField.hidden = false
-                                self.pfSubmit.hidden = false
-                            }
-                            else
-                            {
-                                self.fcEdit.hidden = true
-                                self.fcSubmit.hidden = true
-                                self.postField.hidden = true
-                                self.pfSubmit.hidden = true
-                                
-                            }
-                        });
-                        
-                        //}
-                    } catch let error as NSError {
-                        print("Failed to load: \(error.localizedDescription)")
-                    }
-
-                }
-            );
-            task.resume()
-        }
-        catch {
-            
-            print("error")
-            //Access error here
-        }
-        
-        let url2:NSURL = NSURL(string: "http://www.hvz-go.com/fcPostPopulate.php")!
-        let session2 = NSURLSession.sharedSession()
-        
-        let request2 = NSMutableURLRequest(URL: url2)
-        request2.HTTPMethod = "POST"
-        request2.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
-        //let UserName: String = globalUserName
-        //let fcname: String = fcName.text!
-        
-        //let dictionary = ["UserName": UserName, "fcName": fcname]
-        do{
-            let data2 = try NSJSONSerialization.dataWithJSONObject(dictionary, options: .PrettyPrinted)
-            //let data = try NSJSONSerialization.JSONObjectWi(dictionary, options: .mutableContainers) as? [String:Any]
-            let task2 = session2.uploadTaskWithRequest(request2, fromData: data2, completionHandler:
-                {(data2,response2,error) in
-                    
-                    guard let _:NSData = data2, let _:NSURLResponse = response2  where error == nil else {
-                        print("error23")
-                        return
-                    }
-                    //let str = "{\"names\": [\"Bob\", \"Tim\", \"Tina\"]}"
-                    //let data = response(using: String.Encoding.utf8, allowLossyConversion: false)!
-                    do {
-                        let response2 = try NSJSONSerialization.JSONObjectWithData(data2!, options: []) as! [String: String]
-                        dispatch_async(dispatch_get_main_queue(), {
-                            //print( "you are here")
-                            //print(response2)
-                            //print("your are past")
-                            //let i:Int = 0
-                            for (key, value) in response2 {
-                                print("\(key) , \(value)")
-                                self.items.append(value)
-                            }
-                            
-                            for (key, value) in response2 {
-                                //print("\(key) , \(value)")
-                                self.items[Int(key)!-1] = value
-                            }
-
-                            self.tableView.reloadData()
-
-                        });
-        
-                    } catch let error as NSError {
-                        print("Failed to load 45: \(error.localizedDescription)")
-                    }
-                    
-                }
-            );
-            task2.resume()
-        }
-        catch {
-            
-            print("error")
-            //Access error here
-        }
-        getRating()
 
     }
 
@@ -482,7 +354,7 @@ class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         request5.HTTPMethod = "POST"
         request5.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
         
-        let dictionary = ["fcName": fcName.text!]
+        let dictionary = ["fcName": foodCart]
         
         do{
             let data5 = try NSJSONSerialization.dataWithJSONObject(dictionary, options: .PrettyPrinted)
@@ -513,11 +385,15 @@ class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
                                 for (key, value) in response5 {
                                     //print("\(key) , \(value)")
                                     //self.items[Int(key)!-1] = value
-                                    rate += Int(value)!
-                                    count += 1
+                                    if key != "status" && key != "message" && key != "1" {
+                                        rate += Int(value)!
+                                        count += 1
+                                    }
                                 }
-                                rate = rate/count
-                                self.fcRate.text = String(rate)
+                                if rate != 0 {
+                                    rate = rate/count
+                                    self.fcRate.text = String(rate)
+                                }
                             }
                             else {
                                 self.fcRate.text = "0"
@@ -543,6 +419,152 @@ class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         
     }
+    
+    func populateHome() {
+        let url:NSURL = NSURL(string: "http://www.hvz-go.com/fcPopulateHome.php")!
+        let session = NSURLSession.sharedSession()
+        
+        let request = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "POST"
+        request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
+        let UserName: String = globalUserName
+        var fcname: String = fcName.text!
+        
+        if(globalUserLevel == "u" || globalUserLevel == "a")
+        {
+            fcname = globalFCSearch
+        }
+        else if fcname == "" {
+            fcname = "temp"
+        }
+        
+        let dictionary = ["UserName": UserName, "fcName": fcname]
+        do{
+            let data = try NSJSONSerialization.dataWithJSONObject(dictionary, options: .PrettyPrinted)
+            //let data = try NSJSONSerialization.JSONObjectWi(dictionary, options: .mutableContainers) as? [String:Any]
+            let task = session.uploadTaskWithRequest(request, fromData: data, completionHandler:
+                {(data,response,error) in
+                    
+                    guard let _:NSData = data, let _:NSURLResponse = response  where error == nil else {
+                        print("error")
+                        return
+                    }
+                    //let str = "{\"names\": [\"Bob\", \"Tim\", \"Tina\"]}"
+                    //let data = response(using: String.Encoding.utf8, allowLossyConversion: false)!
+                    do {
+                        let json = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String: String]
+                        dispatch_async(dispatch_get_main_queue(), {
+                            print(json)
+                            self.fcName.text = json["fcName"]
+                            self.foodCart = json["fcName"]!
+                            self.fcAdd1.text = json["fcAdd1"]
+                            self.fcAdd2.text = json["fcAdd2"]
+                            self.fcAdd3.text = json["fcAdd3"]
+                            self.fcMon.text = json["fcMon"]
+                            self.fcTue.text = json["fcTue"]
+                            self.fcWed.text = json["fcWed"]
+                            self.fcThu.text = json["fcThu"]
+                            self.fcFri.text = json["fcFri"]
+                            self.fcSat.text = json["fcSat"]
+                            self.fcSun.text = json["fcSun"]
+    
+                            if (json["Owner"] == "true")
+                            {
+                                self.fcEdit.hidden = false
+                                self.fcSubmit.hidden = false
+                                self.postField.hidden = false
+                                self.pfSubmit.hidden = false
+                            }
+                            else
+                            {
+                                self.fcEdit.hidden = true
+                                self.fcSubmit.hidden = true
+                                self.postField.hidden = true
+                                self.pfSubmit.hidden = true
+                                
+                            }
+                            self.populatePost()
+                            self.getRating()
+                        });
+                        
+                        //}
+                    } catch let error as NSError {
+                        print("Failed to load: \(error.localizedDescription)")
+                    }
+                
+                    //here
+                }
+            );
+            task.resume()
+        }
+        catch {
+            
+            print("error")
+            //Access error here
+        }
+    }
+    
+    func populatePost() {
+        let url2:NSURL = NSURL(string: "http://www.hvz-go.com/fcPostPopulate.php")!
+        let session2 = NSURLSession.sharedSession()
+        let fcname:String = fcName.text!
+        let request2 = NSMutableURLRequest(URL: url2)
+        request2.HTTPMethod = "POST"
+        request2.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
+        
+        let dictionary = ["UserName": globalUserName, "fcName": fcname]
+        do{
+            let data2 = try NSJSONSerialization.dataWithJSONObject(dictionary, options: .PrettyPrinted)
+            //let data = try NSJSONSerialization.JSONObjectWi(dictionary, options: .mutableContainers) as? [String:Any]
+            let task2 = session2.uploadTaskWithRequest(request2, fromData: data2, completionHandler:
+                {(data2,response2,error) in
+                    
+                    guard let _:NSData = data2, let _:NSURLResponse = response2  where error == nil else {
+                        print("error23")
+                        return
+                    }
+                    //let str = "{\"names\": [\"Bob\", \"Tim\", \"Tina\"]}"
+                    //let data = response(using: String.Encoding.utf8, allowLossyConversion: false)!
+                    do {
+                        let response2 = try NSJSONSerialization.JSONObjectWithData(data2!, options: []) as! [String: String]
+                        dispatch_async(dispatch_get_main_queue(), {
+                            //print( "you are here")
+                            //print(response2)
+                            //print("your are past")
+                            //let i:Int = 0
+                            
+                            for (key, value) in response2 {
+                                print("\(key) , \(value)")
+                                self.items.append(value)
+                            }
+                            
+                            for (key, value) in response2 {
+                                //print("\(key) , \(value)")
+                                if(key != "status" && key != "message" && key != "1") {
+                                    self.items[Int(key)!-1] = value
+                                }
+                            }
+                            
+                            self.tableView.reloadData()
+                            
+                        });
+                        
+                    } catch let error as NSError {
+                        print("Failed to load 455: \(error.localizedDescription)")
+                    }
+                    
+                }
+            );
+            task2.resume()
+        }
+        catch {
+            
+            print("error")
+            //Access error here
+        }
+
+    }
+    
     @IBAction func clickWriteReview(sender: UIButton) {
         
         globalFCSearch = fcName.text!
@@ -566,51 +588,6 @@ class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.presentViewController(resultViewController, animated:true, completion:nil)
 
     }
-    //Image stuff
-    
-//    func createRequestBodyWith(parameters:[String:NSObject], filePathKey:String, boundary:String) -> NSData{
-//        
-//        let body = NSMutableData()
-//        
-//        for (key, value) in parameters {
-//            body.
-//            body.appendString(string: "--\(boundary)\r\n")
-//            body.appendData("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")//(string: "Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
-//            body.appendString(string: "\(value)\r\n")
-//        }
-//        
-//        body.appendString(string: "--\(boundary)\r\n")
-//        
-//        var mimetype = "image/jpg"
-//        
-//        let defFileName = "yourImageName.jpg"
-//        
-//        let imageData = UIImageJPEGRepresentation(yourImage, 1)
-//        
-//        body.appendString(string: "Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(defFileName)\"\r\n")
-//        body.appendString(string: "Content-Type: \(mimetype)\r\n\r\n")
-//        body.append(imageData!)
-//        body.appendString(string: "\r\n")
-//        
-//        body.appendString(string: "--\(boundary)--\r\n")
-//        
-//        return body
-//    }
-//    
-//    
-//    
-//    func generateBoundaryString() -> String {
-//        return "Boundary-\(NSUUID().uuidString)"
-//    }
-//    
-//    
-//    
-//    extension NSMutableData {
-//        
-//        func appendString(string: String) {
-//            let data = string.data(using: String.Encoding.utf8, allowLossyConversion: true)
-//            append(data!)
-//    }
 
 }
 

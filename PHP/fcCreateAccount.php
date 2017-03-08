@@ -14,8 +14,8 @@
       //$returnValue["Password"] = $Password;
       //$returnValue["Email"] = $Email;
       //$returnValue["PrivLevel"] = $PrivLevel;
-      $returnValue["status"] = "error";
-      $returnValue["message"] = "Missing required field";
+      $returnValue = "error";
+      //$returnValue["message"] = "Missing required field";
       echo json_encode($returnValue);
       return;
   }
@@ -34,8 +34,8 @@
 
   if (strcmp($salt0, $UserName) == 0)
   {
-    $returnError["status"] = "error";
-    $returnError["message"] = "UserName $UserName already exists";
+    $returnError = "error";
+    //$returnError["message"] = "UserName $UserName already exists";
     echo json_encode($returnError);
     return;
   }
@@ -48,8 +48,8 @@
 
     if (strcmp($salt1, $Email) == 0)
     {
-      $returnError["status"] = "error";
-      $returnError["message"] = "Email $Email already in use";
+      $returnError = "error";
+      //$returnError["message"] = "Email $Email already in use";
       echo json_encode($returnError);
       return;
     }
@@ -61,12 +61,14 @@
           $stmt->bind_param('ssss', $UserName, $Password, $Email, $PrivLevel);
           if($stmt->execute()) {
             $success = true;
-            $returnSuccess["message"] = "Account Created";
+            //$returnSuccess["message"] = "Account Created";
+            $returnSuccess = "Account Created";
             echo json_encode($returnSuccess);
             return;
           }
           else{
-            $returnValues["message"] = "Unable to create account";
+            //$returnValues["message"] = "Unable to create account";
+            $returnSuccess = "Account Created";
             echo json_encode($returnValues);
             return;
           }

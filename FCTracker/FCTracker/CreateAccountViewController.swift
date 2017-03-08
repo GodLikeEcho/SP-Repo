@@ -9,6 +9,8 @@
 //import Foundation
 import UIKit
 
+var globalNew = false
+
 class CreateAccountViewController: UIViewController {
     
     override func viewDidLoad() {
@@ -59,13 +61,24 @@ class CreateAccountViewController: UIViewController {
                     }
                     
                     let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                    //let dataString = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String: String]
                     print(dataString)
                     dispatch_async(dispatch_get_main_queue(), {
                         print(NSThread.isMainThread()) // true (we told it to execute this new block on the main queue)
                         // Execute the code to update your UI (change your view) from here
+//                        if dataString["status"] == "error" {
+//                            print("Could not create account")
+//                        }
+                        if dataString == "\"error\"" {
+                            print("Could not create account")
+                        }
+                       else {
+                            
                         
                         if(self.PrivLevel == "u")
                         {
+                            globalNew = true
+                            globalUserName = UserName
                             let storyBoard : UIStoryboard = self.storyboard!
                             let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("UTab") as! UITabBarController
                             self.presentViewController(resultViewController, animated:true, completion:nil)
@@ -73,6 +86,8 @@ class CreateAccountViewController: UIViewController {
                         }
                         else if(self.PrivLevel == "f")
                         {
+                            globalNew = true
+                            globalUserName = UserName
                             let storyBoard : UIStoryboard = self.storyboard!
                             let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("FCTab") as! UITabBarController
                             self.presentViewController(resultViewController, animated:true, completion:nil)
@@ -82,6 +97,7 @@ class CreateAccountViewController: UIViewController {
                             print("Hit last else")
                             print(self.PrivLevel)
                             print(self.PrivLevel == "u")
+                        }
                         }
                         
                     });
@@ -95,7 +111,6 @@ class CreateAccountViewController: UIViewController {
             print("error")
             //Access error here
         }
-
     }
 
     @IBAction func clickBack(sender: UIButton) {

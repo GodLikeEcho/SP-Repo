@@ -4,6 +4,7 @@
 
   $UserName = $jsonArray['UserName'];
   $fcName = $jsonArray['fcName'];
+  //$fcName = $jsonArray['fcName'];
 
   if(empty($UserName) || empty($fcName))
   {
@@ -20,16 +21,43 @@
     printf("Connect failed: %s\n", $mysqli->connect_error);
     exit();
   }
+  $found = "false";
+  $test0 = $mysqli->query("SELECT UserName FROM FoodCart WHERE UserName = '$UserName'");
+  while($row0 = $test0->fetch_assoc()){
+    $found = "true";
+  }
+  //$row0 = mysqli_fetch_array($test0);
+  //$salt0 = $row0['UserName'];
 
-  $test0 = $mysqli->query("SELECT UserName FROM FoodCart WHERE fcName = '$fcName'");
-  $row0 = mysqli_fetch_array($test0);
-  $salt0 = $row0['UserName'];
-
-  if (strcmp($salt0, $UserName) == 0)
+  // if (strcmp($salt0, $UserName) == 0)
+  // {
+  //   $returnValue["Owner"] = "true";
+  //   //echo json_encode($returnValue);
+  //   //return;
+  // }
+  if($found == "true")
   {
     $returnValue["Owner"] = "true";
-    //echo json_encode($returnValue);
-    //return;
+    //   //echo json_encode($returnValue);
+    //   //return;
+    $stmt = $mysqli->query("SELECT * FROM FoodCart WHERE UserName = '$UserName'");
+    //$result  = $mysqli->query($stmt);
+    //$row = mysqli_fetch_array($test0);
+    while($row = $stmt->fetch_assoc()){
+      $returnValue["UserName"] = $row['UserName'];
+      $returnValue["fcName"] = $row['fcName'];
+      $returnValue["fcAdd1"] = $row['fcAdd1'];
+      $returnValue["fcAdd2"] = $row['fcAdd2'];
+      $returnValue["fcAdd3"] = $row['fcAdd3'];
+      $returnValue["fcMon"] = $row['fcMon'];
+      $returnValue["fcTue"] = $row['fcTue'];
+      $returnValue["fcWed"] = $row['fcWed'];
+      $returnValue["fcThu"] = $row['fcThu'];
+      $returnValue["fcFri"] = $row['fcFri'];
+      $returnValue["fcSat"] = $row['fcSat'];
+      $returnValue["fcSun"] = $row['fcSun'];
+      $returnValue["fcRate"] = $row['fcRate'];
+    }
   }
 
   else
@@ -38,45 +66,30 @@
     //echo json_encode($returnValue);
     //return;
 
+    $stmt1 = $mysqli->query("SELECT * FROM FoodCart WHERE fcName = '$fcName'");
+    //$result  = $mysqli->query($stmt);
+    //$row = mysqli_fetch_array($test0);
+    while($row1 = $stmt1->fetch_assoc()){
+      $returnValue["UserName"] = $row1['UserName'];
+      $returnValue["fcName"] = $row1['fcName'];
+      $returnValue["fcAdd1"] = $row1['fcAdd1'];
+      $returnValue["fcAdd2"] = $row1['fcAdd2'];
+      $returnValue["fcAdd3"] = $row1['fcAdd3'];
+      $returnValue["fcMon"] = $row1['fcMon'];
+      $returnValue["fcTue"] = $row1['fcTue'];
+      $returnValue["fcWed"] = $row1['fcWed'];
+      $returnValue["fcThu"] = $row1['fcThu'];
+      $returnValue["fcFri"] = $row1['fcFri'];
+      $returnValue["fcSat"] = $row1['fcSat'];
+      $returnValue["fcSun"] = $row1['fcSun'];
+      $returnValue["fcRate"] = $row1['fcRate'];
+    }
+
   }
 
-  $stmt = $mysqli->query("SELECT * FROM FoodCart WHERE fcName = '$fcName'");
-  //$result  = $mysqli->query($stmt);
-  //$row = mysqli_fetch_array($test0);
-  while($row = $stmt->fetch_assoc()){
-    $returnValue["UserName"] = $row['UserName'];
-    $returnValue["fcName"] = $row['fcName'];
-    $returnValue["fcAdd1"] = $row['fcAdd1'];
-    $returnValue["fcAdd2"] = $row['fcAdd2'];
-    $returnValue["fcAdd3"] = $row['fcAdd3'];
-    $returnValue["fcMon"] = $row['fcMon'];
-    $returnValue["fcTue"] = $row['fcTue'];
-    $returnValue["fcWed"] = $row['fcWed'];
-    $returnValue["fcThu"] = $row['fcThu'];
-    $returnValue["fcFri"] = $row['fcFri'];
-    $returnValue["fcSat"] = $row['fcSat'];
-    $returnValue["fcSun"] = $row['fcSun'];
-    $returnValue["fcRate"] = $row['fcRate'];
-}
+
 
   echo json_encode($returnValue);
-//   if (mysql_num_rows($stmt) > 0) {
-//     while ($row = mysql_fetch_assoc($stmt)) {
-//       $returnValue["UserName"] = $row["UserName"];
-//       $returnValue["fcName"] = $row["fcName"];
-//       echo json_encode($returnValue);
-//     }
-// }
-
-  // if($result ->num_rows > 0)
-  // {
-  //   while($row = $result->fetch_assoc()) {
-  //       $returnValue["UserName"] = $row["UserName"];
-  //       $returnValue["fcName"] = $row["fcName"];
-  //       echo json_encode($returnValue);
-  //   }
-  // }
-
   return
   $mysqli->close();
 

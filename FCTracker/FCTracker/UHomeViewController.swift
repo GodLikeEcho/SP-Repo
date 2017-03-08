@@ -49,7 +49,13 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         getFav(globalUserName)
         getReview("fc42")
-        getLastPost("fc42")
+//        for index in fcFavorites {
+//            getLastPost(index)
+//        }
+        //print(items)
+        
+        //feedTableView.reloadData()
+        //getLastPost("fc42")
         //self.feedTableView.reloadData()
         //populateCells(fcFavorites, Day: fDay)
     }
@@ -108,11 +114,8 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         if tableView == self.feedTableView {
             let cell:CustomPostCell = self.feedTableView.dequeueReusableCellWithIdentifier("feedCell", forIndexPath: indexPath) as! CustomPostCell
-            print(items[indexPath.row])
-            //let item = items[indexPath.row]
             if items.count > 0 && indexPath.row <= items.count - 1 {
                 cell.set2("Temp", Post: items[indexPath.row])
-                print(cell.fcPost22)
             }
             else {
                 cell.set2("Temp", Post: "There is no post atm")
@@ -151,7 +154,7 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 let constraintRect = CGSize(width: 280.0, height: CGFloat.max)
                 //get height of the string used
                 let boundingBox = stringData.boundingRectWithSize(constraintRect, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(15.0)], context: nil)
-                return boundingBox.height + CGFloat(85.0)
+                return boundingBox.height + CGFloat(40.0)
             }
             else{
                 returnValue = CGFloat(85.0);
@@ -287,19 +290,25 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                     self.fcFavorites.append(value)
                                 }
                                 
-                                for (key, value) in response2 {
-                                    //print("\(key) , \(value)")
-                                    self.fcFavorites[Int(key)!-1] = value
-                                }
+//                                for (key, value) in response2 {
+//                                    //print("\(key) , \(value)")
+//                                    self.fcFavorites[Int(key)!-1] = value
+//                                }
                                 
                                 self.populateCells(self.fcFavorites, Day: self.fDay)
                             }
                             //self.tableView.reloadData()
+                            for index in self.fcFavorites {
+                                if index != "False" {
+                                    self.getLastPost(index)
+                                }
+                            }
+                            print(self.items)
                             
                         });
                         
                     } catch let error as NSError {
-                        print("Failed to load 45: \(error.localizedDescription)")
+                        print("Failed to load 49: \(error.localizedDescription)")
                     }
                     
                 }
@@ -397,7 +406,7 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
                         });
                         
                     } catch let error as NSError {
-                        print("Failed to load 45: \(error.localizedDescription)")
+                        print("Failed to load 47: \(error.localizedDescription)")
                     }
                     
                 }
@@ -413,7 +422,7 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func getLastPost(fcname: String) { //fcGetLastPost.php
-        let url6:NSURL = NSURL(string: "http://www.hvz-go.com/fcPostPopulate.php")!
+        let url6:NSURL = NSURL(string: "http://www.hvz-go.com/fcGetLastPost.php")!
         let session6 = NSURLSession.sharedSession()
     
         let request6 = NSMutableURLRequest(URL: url6)
@@ -422,7 +431,7 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //let UserName: String = globalUserName
         //let fcname: String = fcName.text!
     
-        let dictionary = ["UserName": "Temp", "fcName": fcname]
+        let dictionary = ["fcName": fcname]
         do{
             let data6 = try NSJSONSerialization.dataWithJSONObject(dictionary, options: .PrettyPrinted)
             //let data = try NSJSONSerialization.JSONObjectWi(dictionary, options: .mutableContainers) as? [String:Any]
@@ -433,24 +442,24 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
                         print("error23")
                         return
                     }
-                    //let str = "{\"names\": [\"Bob\", \"Tim\", \"Tina\"]}"
-                    //let data = response(using: String.Encoding.utf8, allowLossyConversion: false)!
+
                     do {
                         let response6 = try NSJSONSerialization.JSONObjectWithData(data6!, options: []) as! [String: String]
                         dispatch_async(dispatch_get_main_queue(), {
-                            print( "you are here")
-                            //print(response2)
+                            //print( "you are here")
+                            print(response6)
                             //print("your are past")
                             //let i:Int = 0
                             for (key, value) in response6 {
                                 print("\(key) , \(value)")
                                 self.items.append(value)
                             }
-    
-                            for (key, value) in response6 {
-                                //print("\(key) , \(value)")
-                                self.items[Int(key)!-1] = value
-                            }
+//
+//                            for (key, value) in response6 {
+//                                //print("\(key) , \(value)")
+//                                self.items[Int(key)!-1] = value
+//                            }
+                            //self.items.append(response6["Post"]!)
     
                             self.feedTableView.reloadData()
     

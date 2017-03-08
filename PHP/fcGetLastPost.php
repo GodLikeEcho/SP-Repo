@@ -1,11 +1,9 @@
-//SELECT MAX(id) FROM fcPosts WHERE Name = 'fc42'
 
 <?php
 
   $jsonString = file_get_contents('php://input');
   $jsonArray = json_decode($jsonString, true);
 
-  //$UserName = $jsonArray['UserName'];
   $fcName = $jsonArray['fcName'];
 
   if(empty($fcName))
@@ -23,15 +21,21 @@
     printf("Connect failed: %s\n", $mysqli->connect_error);
     exit();
   }
-  //$return = array();
 
-  $test0 = $mysqli->query("SELECT MAX(id) FROM fcPosts WHERE Name = '$fcName'");
-  $row0 = mysqli_fetch_array($test0);
-  $salt0 = $row0['id'];
+  $stmt = $mysqli->query("Select Post from fcPosts where id in(SELECT MAX(id) FROM fcPosts WHERE Name = '$fcName')");//AND id = '$salt0'
 
-  $stmt = $mysqli->query("SELECT Post FROM fcPosts WHERE Name = '$fcName' AND id = '$salt0'");
-  $row = mysqli_fetch_array($stmt);
-  $returnValue["Post"] = $row['Post']
+  $n = 1;
+  $check = 1;
+  while($row = $stmt->fetch_assoc())
+  {
+    $check = 2;
+    $returnValue["$n"] = $row['Post'];
+    $n += 1;
+  }
+  if ($check == 1)
+  {
+      $$returnValue["False"] = "I have no idea";
+  }
 
   echo json_encode($returnValue);
   return
