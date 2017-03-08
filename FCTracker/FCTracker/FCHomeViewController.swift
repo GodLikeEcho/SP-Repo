@@ -559,6 +559,58 @@ class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("viewReview") as! fcReviewController
         self.presentViewController(resultViewController, animated:true, completion:nil)
     }
+    
+    @IBAction func clickMenu(sender: UIButton) {
+        let storyBoard : UIStoryboard = self.storyboard!
+        let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("menuViewController") as! MenuViewController
+        self.presentViewController(resultViewController, animated:true, completion:nil)
+
+    }
+    //Image stuff
+    
+//    func createRequestBodyWith(parameters:[String:NSObject], filePathKey:String, boundary:String) -> NSData{
+//        
+//        let body = NSMutableData()
+//        
+//        for (key, value) in parameters {
+//            body.
+//            body.appendString(string: "--\(boundary)\r\n")
+//            body.appendData("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")//(string: "Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
+//            body.appendString(string: "\(value)\r\n")
+//        }
+//        
+//        body.appendString(string: "--\(boundary)\r\n")
+//        
+//        var mimetype = "image/jpg"
+//        
+//        let defFileName = "yourImageName.jpg"
+//        
+//        let imageData = UIImageJPEGRepresentation(yourImage, 1)
+//        
+//        body.appendString(string: "Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(defFileName)\"\r\n")
+//        body.appendString(string: "Content-Type: \(mimetype)\r\n\r\n")
+//        body.append(imageData!)
+//        body.appendString(string: "\r\n")
+//        
+//        body.appendString(string: "--\(boundary)--\r\n")
+//        
+//        return body
+//    }
+//    
+//    
+//    
+//    func generateBoundaryString() -> String {
+//        return "Boundary-\(NSUUID().uuidString)"
+//    }
+//    
+//    
+//    
+//    extension NSMutableData {
+//        
+//        func appendString(string: String) {
+//            let data = string.data(using: String.Encoding.utf8, allowLossyConversion: true)
+//            append(data!)
+//    }
 
 }
 
