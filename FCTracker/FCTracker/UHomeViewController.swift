@@ -112,6 +112,7 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
             //let item = items[indexPath.row]
             if items.count > 0 && indexPath.row <= items.count - 1 {
                 cell.set2("Temp", Post: items[indexPath.row])
+                print(cell.fcPost22)
             }
             else {
                 cell.set2("Temp", Post: "There is no post atm")
@@ -141,20 +142,21 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
             else{
                 returnValue = CGFloat(85.0);
             }
-            if tableView == self.feedTableView {
-                if (items.count > 0) {
-                    let stringData = items[indexPath.row] as NSString
-                    let constraintRect = CGSize(width: 280.0, height: CGFloat.max)
-                    //get height of the string used
-                    let boundingBox = stringData.boundingRectWithSize(constraintRect, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(15.0)], context: nil)
-                    return boundingBox.height + CGFloat(85.0)
-                }
-                else{
-                    returnValue = CGFloat(85.0);
-                }
                 //returnValue = CGFloat(85.0);
 
             }
+        if tableView == self.feedTableView {
+            if (items.count > 0) {
+                let stringData = items[indexPath.row] as NSString
+                let constraintRect = CGSize(width: 280.0, height: CGFloat.max)
+                //get height of the string used
+                let boundingBox = stringData.boundingRectWithSize(constraintRect, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(15.0)], context: nil)
+                return boundingBox.height + CGFloat(85.0)
+            }
+            else{
+                returnValue = CGFloat(85.0);
+            }
+
         }
         return returnValue;
     }
