@@ -3,10 +3,10 @@
   $jsonString = file_get_contents('php://input');
   $jsonArray = json_decode($jsonString, true);
 
-  $fcName = $jsonArray['fcName'];
+  $UserName = $jsonArray['UserName'];
   //$fcName = $jsonArray['fcName'];
 
-  if(empty($fcName))
+  if(empty($UserName))
   {
       $returnValue["status"] = "error";
       $returnValue["message"] = "Missing required field";
@@ -22,7 +22,7 @@
     exit();
   }
   //$return = array();
-  $stmt0 = $mysqli->query("SELECT UserName FROM fcReviews WHERE fcName = '$fcName'");
+  $stmt0 = $mysqli->query("SELECT UserName FROM fcReviews WHERE UserName = '$UserName'");
   $u = 1;
   $check0 = 1;
 
@@ -38,7 +38,7 @@
       $returnValue["u1"] = "False";
     }
 
-  $stmt = $mysqli->query("SELECT Post FROM fcReviews WHERE fcName = '$fcName'");
+  $stmt = $mysqli->query("SELECT Post FROM fcReviews WHERE UserName = '$UserName'");
 
   $n = 1;
   $check = 1;
@@ -56,7 +56,7 @@
     }
 
 
-    $stmt2 = $mysqli->query("SELECT Rating FROM fcReviews WHERE fcName = '$fcName'");
+    $stmt2 = $mysqli->query("SELECT Rating FROM fcReviews WHERE UserName = '$UserName'");
   // //
     $r = 1;
     $check2 = 1;

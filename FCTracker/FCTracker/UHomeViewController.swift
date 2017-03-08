@@ -48,7 +48,7 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         feedTableView.delegate = self
         
         getFav(globalUserName)
-        getReview("fc42")
+        getReview(globalUserName)
 //        for index in fcFavorites {
 //            getLastPost(index)
 //        }
@@ -301,6 +301,7 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
                             for index in self.fcFavorites {
                                 if index != "False" {
                                     self.getLastPost(index)
+                                    //self.getReview(index)
                                 }
                             }
                             print(self.items)
@@ -326,7 +327,7 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func getReview(fcName:String)
     {
-        let url3:NSURL = NSURL(string: "http://www.hvz-go.com/fcPopulateReviewCell.php")!
+        let url3:NSURL = NSURL(string: "http://www.hvz-go.com/fcPopulateUserReviewsCell.php")!
         let session3 = NSURLSession.sharedSession()
         
         let request3 = NSMutableURLRequest(URL: url3)
@@ -335,7 +336,7 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //let UserName: String = globalUserName
         //let fcname: String = fcName.text!
         
-        let dictionary = ["fcName": fcName]
+        let dictionary = ["UserName": globalUserName]
         //print(dictionary)
         do{
             let data3 = try NSJSONSerialization.dataWithJSONObject(dictionary, options: .PrettyPrinted)
@@ -385,21 +386,7 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
                                     self.rcount += 1
                                     //self.fcFavorites.append(value)
                                 }
-                                //                                    for (key, value) in response3 {
-                                //                                    //print("\(key) , \(value)")
-                                //                                    searchCharacter = "p"
-                                //                                    if key.lowercaseString.characters.contains(searchCharacter) {
-                                //                                        self.fPost[loc] = value
-                                //                                    }
-                                //                                    searchCharacter = "r"
-                                //                                    searchCharacter = "r"
-                                //                                    if key.lowercaseString.characters.contains(searchCharacter) {
-                                //                                        self.fRate[loc] = value
-                                //                                    }
-                                //                                        loc += 1
-                                //                                }
-                                
-                                //self.populateCells(self.fcFavorites, Day: self.fDay)
+
                             }
                             self.reviewTableView.reloadData()
                             
