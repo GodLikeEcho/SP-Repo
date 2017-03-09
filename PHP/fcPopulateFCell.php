@@ -38,6 +38,10 @@
 			//$n += 1;
 		}
 
+    $stmt0 = $mysqli->query("SELECT (fcRate/RevCount) AS calcRate FROM FoodCart WHERE fcName = '$fcName'");
+    $row0 = mysqli_fetch_array($stmt0);
+    $returnValue["calcRate"] = $row0['calcRate'];
+
   echo json_encode($returnValue);
   return
 

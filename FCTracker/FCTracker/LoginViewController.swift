@@ -10,6 +10,7 @@
 import UIKit
 var globalUserName:String = ""
 var globalUserLevel:String = ""
+//var globalfcName:String = ""
 
 class LoginViewController: UIViewController {
     

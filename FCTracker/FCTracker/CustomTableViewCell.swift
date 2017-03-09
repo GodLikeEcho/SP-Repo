@@ -32,6 +32,6 @@ class CustomTableViewCell: UITableViewCell {
             fcLocation.text = Locaton
             fcHours.text = Hours
             fcRate.text = Rate
-            contentView.backgroundColor = lightRed
+            contentView.backgroundColor = lightGreen
     }
 }

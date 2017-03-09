@@ -4,6 +4,7 @@
 
   $UserName = $jsonArray['UserName'];
   $fcName = $jsonArray['fcName'];
+  $fSearch = $jsonArray['fSearch'];
   //$fcName = $jsonArray['fcName'];
 
   if(empty($UserName) || empty($fcName))
@@ -37,6 +38,9 @@
   // }
   if($found == "true")
   {
+    $stmt0 = $mysqli->query("SELECT (fcRate/RevCount) AS calcRate FROM FoodCart WHERE UserName = '$UserName'");
+    $row0 = mysqli_fetch_array($stmt0);
+    $returnValue["calcRate"] = $row0['calcRate'];
     $returnValue["Owner"] = "true";
     //   //echo json_encode($returnValue);
     //   //return;
@@ -65,7 +69,10 @@
     $returnValue["Owner"] = "false";
     //echo json_encode($returnValue);
     //return;
-
+    $stmt0 = $mysqli->query("SELECT (fcRate/RevCount) AS calcRate FROM FoodCart WHERE fcName = '$fSearch'");
+    $row0 = mysqli_fetch_array($stmt0);
+    $returnValue["calcRate"] = $row0['calcRate'];
+    $returnValue["Owner"] = "true";
     $stmt1 = $mysqli->query("SELECT * FROM FoodCart WHERE fcName = '$fcName'");
     //$result  = $mysqli->query($stmt);
     //$row = mysqli_fetch_array($test0);
