@@ -76,14 +76,23 @@ class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
+        //let cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
         
-        //let item = items[indexPath.row]
-        cell.textLabel?.text = "Item: \(items[indexPath.row])"
-        cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
-        cell.textLabel?.numberOfLines = 0;
+        let cell:CustomPostCell = self.tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath) as! CustomPostCell
+        if items.count > 0 && indexPath.row <= items.count - 1 {
+            cell.set(fcName.text!, Post: items[indexPath.row])
+        }
+        else {
+            cell.set("Temp", Post: "There is no post atm")
+        }
         
         return cell
+//        //let item = items[indexPath.row]
+//        cell.textLabel?.text = "Item: \(items[indexPath.row])"
+//        cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
+//        cell.textLabel?.numberOfLines = 0;
+//        
+//        return cell
     }
     
     
@@ -95,7 +104,7 @@ class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let constraintRect = CGSize(width: 280.0, height: CGFloat.max)
             //get height of the string used
             let boundingBox = stringData.boundingRectWithSize(constraintRect, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: UIFont.systemFontOfSize(15.0)], context: nil)
-            return boundingBox.height + CGFloat(85.0)
+            return boundingBox.height + CGFloat(40.0)
         }
         else{
             returnValue = CGFloat(85.0);

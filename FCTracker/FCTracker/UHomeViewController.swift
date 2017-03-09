@@ -115,7 +115,7 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if tableView == self.feedTableView {
             let cell:CustomPostCell = self.feedTableView.dequeueReusableCellWithIdentifier("feedCell", forIndexPath: indexPath) as! CustomPostCell
             if items.count > 0 && indexPath.row <= items.count - 1 {
-                cell.set2("Temp", Post: items[indexPath.row])
+                cell.set2(fcFavorites[indexPath.row], Post: items[indexPath.row])
             }
             else {
                 cell.set2("Temp", Post: "There is no post atm")
