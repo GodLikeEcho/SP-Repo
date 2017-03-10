@@ -48,7 +48,7 @@
     //$result  = $mysqli->query($stmt);
     //$row = mysqli_fetch_array($test0);
     while($row = $stmt->fetch_assoc()){
-      $returnValue["UserName"] = $row['UserName'];
+      //$returnValue["UserName"] = $row['UserName'];
       $returnValue["fcName"] = $row['fcName'];
       $returnValue["fcAdd1"] = $row['fcAdd1'];
       $returnValue["fcAdd2"] = $row['fcAdd2'];
@@ -72,12 +72,11 @@
     $stmt0 = $mysqli->query("SELECT (fcRate/RevCount) AS calcRate FROM FoodCart WHERE fcName = '$fSearch'");
     $row0 = mysqli_fetch_array($stmt0);
     $returnValue["calcRate"] = $row0['calcRate'];
-    $returnValue["Owner"] = "true";
     $stmt1 = $mysqli->query("SELECT * FROM FoodCart WHERE fcName = '$fcName'");
     //$result  = $mysqli->query($stmt);
     //$row = mysqli_fetch_array($test0);
     while($row1 = $stmt1->fetch_assoc()){
-      $returnValue["UserName"] = $row1['UserName'];
+      //$returnValue["UserName"] = $row1['UserName'];
       $returnValue["fcName"] = $row1['fcName'];
       $returnValue["fcAdd1"] = $row1['fcAdd1'];
       $returnValue["fcAdd2"] = $row1['fcAdd2'];

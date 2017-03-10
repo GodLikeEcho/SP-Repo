@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +20,15 @@ class SecondViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func clickLogOut(sender: UIButton) {
+        globalUserName = ""
+        globalFCSearch = ""
+        globalUserLevel = ""
+        globalNew = false
+        let storyBoard : UIStoryboard = self.storyboard!
+        let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("LoginVC") as! LoginViewController
+        self.presentViewController(resultViewController, animated:true, completion:nil)
+    }
 
 }
 
