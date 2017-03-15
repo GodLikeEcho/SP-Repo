@@ -16,6 +16,12 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet var fcHours: UILabel!
     @IBOutlet var fcRate: UILabel!
     
+    @IBOutlet var fcName2: UILabel!
+    @IBOutlet var fcLocation2: UILabel!
+    @IBOutlet var fcHours2: UILabel!
+    @IBOutlet var fcRate2: UILabel!
+    
+    
     let lightGreen = UIColor(red: 0.5, green: 1.0, blue: 0.5, alpha: 1.0)
     let lightRed = UIColor(red: 1.0, green: 0.9, blue: 0.9, alpha: 1.0)
     
@@ -33,5 +39,13 @@ class CustomTableViewCell: UITableViewCell {
             fcHours.text = Hours
             fcRate.text = Rate
             contentView.backgroundColor = lightGreen
+    }
+    
+    func set2(Name:String, Locaton:String, Hours:String, Rate:String){
+        fcName2.text = Name
+        fcLocation2.text = Locaton
+        fcHours2.text = Hours
+        fcRate2.text = Rate
+        contentView.backgroundColor = lightGreen
     }
 }
