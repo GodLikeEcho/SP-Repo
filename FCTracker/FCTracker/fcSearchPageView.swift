@@ -267,6 +267,9 @@ class fcSearchPageView: UIViewController, UITableViewDelegate, UITableViewDataSo
                             
                             for (key, value) in response2 {
                                 //print("\(key) , \(value)")
+                                if(key == "status") {
+                                    self.items.append("There are currently no Posts")
+                                }
                                 if(key != "status" && key != "message" && key != "1") {
                                     self.items[Int(key)!-1] = value
                                 }

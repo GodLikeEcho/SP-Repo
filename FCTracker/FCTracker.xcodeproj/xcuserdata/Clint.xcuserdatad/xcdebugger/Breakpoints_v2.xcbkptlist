@@ -1291,11 +1291,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FCTracker/fcSearchPageView.swift"
-            timestampString = "511387513.674067"
+            timestampString = "511388275.723464"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "321"
-            endingLineNumber = "321"
+            startingLineNumber = "324"
+            endingLineNumber = "324"
             landmarkName = "clickSearch(_:)"
             landmarkType = "5">
          </BreakpointContent>
