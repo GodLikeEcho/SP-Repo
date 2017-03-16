@@ -19,6 +19,10 @@ class CustomPostCell: UITableViewCell {
 
     @IBOutlet var fcName: UILabel!
     @IBOutlet var fcPost: UITextView!
+    
+    @IBOutlet var fcName33: UILabel!
+    @IBOutlet var fcPost33: UITextView!
+    
 
     //@IBOutlet var fcName2: UILabel!
     //@IBOutlet var fcPost2: UITextView!
@@ -48,6 +52,14 @@ class CustomPostCell: UITableViewCell {
           fcName.text = Name
           fcPost.text = Post
 //        fcRate2.text = Rate
+        contentView.backgroundColor = lightGreen
+    }
+    
+    func set3(Name:String, Post:String){
+        
+        fcName33.text = Name
+        fcPost33.text = Post
+        //        fcRate2.text = Rate
         contentView.backgroundColor = lightGreen
     }
     

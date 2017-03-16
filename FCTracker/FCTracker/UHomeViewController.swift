@@ -175,9 +175,10 @@ class UHomeViewController: UIViewController, UITableViewDelegate, UITableViewDat
         globalFCSearch = fName[indexPath.row]
         print(globalFCSearch)
         if tableView == self.tableView {
-            let storyBoard : UIStoryboard = self.storyboard!
-            let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("FCTab") as! UITabBarController
-            self.presentViewController(resultViewController, animated:true, completion:nil)
+//            let storyBoard : UIStoryboard = self.storyboard!
+//            let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("UTab") as! UITabBarController
+//            self.presentViewController(resultViewController, animated:true, completion:nil)
+            tabBarController?.selectedIndex = 3
         }
     }
     
