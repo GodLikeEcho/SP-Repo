@@ -237,6 +237,7 @@ class fcSearchPageView: UIViewController, UITableViewDelegate, UITableViewDataSo
         request2.HTTPMethod = "POST"
         request2.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
         
+        items = []
         let dictionary = ["UserName": globalUserName, "fcName": globalFCSearch]
         do{
             let data2 = try NSJSONSerialization.dataWithJSONObject(dictionary, options: .PrettyPrinted)
