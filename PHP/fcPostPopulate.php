@@ -26,14 +26,18 @@
 
   $n = 1;
   $p = "p";
-
+  $found = "false";
     $rows = array();
     while($row = $stmt->fetch_assoc())
 		{
+      $found = "true";
 			$returnValue["$n"] = $row['Post'];
 			$n += 1;
 		}
-
+  if($found == "false")
+  {
+    $returnValue["status"] = "No posts found";
+  }
   echo json_encode($returnValue);
   return
 

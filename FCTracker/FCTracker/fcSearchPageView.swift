@@ -257,10 +257,11 @@ class fcSearchPageView: UIViewController, UITableViewDelegate, UITableViewDataSo
                             //print(response2)
                             //print("your are past")
                             //let i:Int = 0
-                            
                             for (key, value) in response2 {
                                 print("\(key) , \(value)")
-                                self.items.append(value)
+                                if key != "status" {
+                                    self.items.append(value)
+                                }
                             }
                             
                             for (key, value) in response2 {

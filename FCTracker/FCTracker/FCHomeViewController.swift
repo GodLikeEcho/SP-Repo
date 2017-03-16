@@ -545,7 +545,9 @@ class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
                             
                             for (key, value) in response2 {
                                 print("\(key) , \(value)")
-                                self.items.append(value)
+                                if(key != "error") {
+                                    self.items.append(value)
+                                }
                             }
                             
                             for (key, value) in response2 {
