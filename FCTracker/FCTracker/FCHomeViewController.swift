@@ -604,5 +604,10 @@ class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     }
 
+    @IBAction func clickMap(sender: UIButton) {
+        globalFCSearch = fcName.text!
+        print(globalFCSearch)
+        tabBarController?.selectedIndex = 4
+    }
 }
 

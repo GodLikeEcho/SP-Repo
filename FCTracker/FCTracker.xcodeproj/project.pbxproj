@@ -17,6 +17,8 @@
 		F41D222E1E3AB90400F91D31 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41D222D1E3AB90400F91D31 /* LoginViewController.swift */; };
 		F43B885A1E79DBD9001DC4B9 /* fcWidgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43B88591E79DBD9001DC4B9 /* fcWidgetViewController.swift */; };
 		F43B885C1E7A3A0C001DC4B9 /* fcSearchPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43B885B1E7A3A0C001DC4B9 /* fcSearchPageView.swift */; };
+		F43B885E1E7B8090001DC4B9 /* fcMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43B885D1E7B8090001DC4B9 /* fcMapViewController.swift */; };
+		F43B88601E7B8FCC001DC4B9 /* MapPinClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F43B885F1E7B8FCC001DC4B9 /* MapPinClass.swift */; };
 		F46490701E4D764600F9B4F1 /* UHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F464906F1E4D764600F9B4F1 /* UHomeViewController.swift */; };
 		F4B4C2961E663443004B91C9 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B4C2951E663443004B91C9 /* CustomTableViewCell.swift */; };
 		F4B4C29A1E68A415004B91C9 /* fcWriteReviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B4C2991E68A415004B91C9 /* fcWriteReviewController.swift */; };
@@ -39,6 +41,8 @@
 		F41D222D1E3AB90400F91D31 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F43B88591E79DBD9001DC4B9 /* fcWidgetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fcWidgetViewController.swift; sourceTree = "<group>"; };
 		F43B885B1E7A3A0C001DC4B9 /* fcSearchPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fcSearchPageView.swift; sourceTree = "<group>"; };
+		F43B885D1E7B8090001DC4B9 /* fcMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fcMapViewController.swift; sourceTree = "<group>"; };
+		F43B885F1E7B8FCC001DC4B9 /* MapPinClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapPinClass.swift; sourceTree = "<group>"; };
 		F464906F1E4D764600F9B4F1 /* UHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UHomeViewController.swift; sourceTree = "<group>"; };
 		F4B4C2951E663443004B91C9 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		F4B4C2991E68A415004B91C9 /* fcWriteReviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fcWriteReviewController.swift; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 				F4B4C2991E68A415004B91C9 /* fcWriteReviewController.swift */,
 				F4B4C29B1E68AEC4004B91C9 /* fcReviewController.swift */,
 				F464906F1E4D764600F9B4F1 /* UHomeViewController.swift */,
+				F43B885D1E7B8090001DC4B9 /* fcMapViewController.swift */,
+				F43B885F1E7B8FCC001DC4B9 /* MapPinClass.swift */,
 				F41D221D1E3AB79E00F91D31 /* SettingsViewController.swift */,
 				F4B4C2951E663443004B91C9 /* CustomTableViewCell.swift */,
 				F4B4C29D1E68B00A004B91C9 /* customReviewTableViewCell.swift */,
@@ -178,6 +184,8 @@
 				F4B4C29E1E68B00A004B91C9 /* customReviewTableViewCell.swift in Sources */,
 				F41D221E1E3AB79E00F91D31 /* SettingsViewController.swift in Sources */,
 				F4B4C2961E663443004B91C9 /* CustomTableViewCell.swift in Sources */,
+				F43B88601E7B8FCC001DC4B9 /* MapPinClass.swift in Sources */,
+				F43B885E1E7B8090001DC4B9 /* fcMapViewController.swift in Sources */,
 				F404FF601E6F98680004D66F /* MenuViewController.swift in Sources */,
 				F43B885C1E7A3A0C001DC4B9 /* fcSearchPageView.swift in Sources */,
 				F404FF5E1E6E9F0E0004D66F /* CustomPostCell.swift in Sources */,

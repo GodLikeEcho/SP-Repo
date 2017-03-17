@@ -467,6 +467,7 @@
                         <segue destination="yhK-tY-Z8S" kind="relationship" relationship="viewControllers" id="n1O-aV-mzO"/>
                         <segue destination="Ok4-cP-Th6" kind="relationship" relationship="viewControllers" id="oW2-5q-vik"/>
                         <segue destination="A5M-FQ-w9a" kind="relationship" relationship="viewControllers" id="1ym-JP-br6"/>
+                        <segue destination="EpE-SC-g9R" kind="relationship" relationship="viewControllers" id="fFL-3Z-PwF"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kNy-UR-GqH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -620,7 +621,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="267" height="60"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f82-ei-cL6" id="zHi-uf-rdO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="267" height="60"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="267" height="59.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQp-wU-6Pt">
@@ -670,13 +671,6 @@
                                             <action selector="clickpfSubmit:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Cuu-MG-RIH"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8tB-dC-ZIS">
-                                        <rect key="frame" x="21" y="233" width="97" height="30"/>
-                                        <state key="normal" title="Favorite"/>
-                                        <connections>
-                                            <action selector="clickFav:" destination="9pv-A4-QxB" eventType="touchUpInside" id="WLI-iT-sYM"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dk6-xf-6rk">
                                         <rect key="frame" x="21" y="262" width="97" height="30"/>
                                         <state key="normal" title="Write Review"/>
@@ -692,10 +686,24 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00d-Te-voE">
-                                        <rect key="frame" x="50" y="195" width="39" height="30"/>
+                                        <rect key="frame" x="22" y="205" width="39" height="30"/>
                                         <state key="normal" title="Menu"/>
                                         <connections>
                                             <action selector="clickMenu:" destination="9pv-A4-QxB" eventType="touchUpInside" id="613-07-7R9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3or-Z1-3ml">
+                                        <rect key="frame" x="80" y="205" width="30" height="30"/>
+                                        <state key="normal" title="Map"/>
+                                        <connections>
+                                            <action selector="clickMap:" destination="9pv-A4-QxB" eventType="touchUpInside" id="CWS-ot-VkR"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8tB-dC-ZIS">
+                                        <rect key="frame" x="20" y="238" width="97" height="30"/>
+                                        <state key="normal" title="Favorite"/>
+                                        <connections>
+                                            <action selector="clickFav:" destination="9pv-A4-QxB" eventType="touchUpInside" id="WLI-iT-sYM"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -786,6 +794,77 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4vs-ST-k77" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2463" y="156"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="2Uc-d3-qqJ">
+            <objects>
+                <viewController storyboardIdentifier="mapViewController" id="EpE-SC-g9R" customClass="fcMapViewController" customModule="FCTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jHF-KK-5ad"/>
+                        <viewControllerLayoutGuide type="bottom" id="BLO-SC-0n1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LTI-x4-bk2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="mapView" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="U2C-7I-rQd">
+                                <rect key="frame" x="0.0" y="65" width="600" height="486"/>
+                                <connections>
+                                    <outlet property="delegate" destination="EpE-SC-g9R" id="mJM-A9-MTP"/>
+                                </connections>
+                            </mapView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3pz-bf-gto">
+                                <rect key="frame" x="301" y="28" width="219" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="219" id="ssy-qj-rCT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gth-Kr-R1X">
+                                <rect key="frame" x="528" y="28" width="72" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="72" id="MQk-Hd-jJo"/>
+                                </constraints>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="clickSearch:" destination="EpE-SC-g9R" eventType="touchUpInside" id="7X9-0G-Tj1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xIj-Ed-OKd">
+                                <rect key="frame" x="207" y="27" width="76" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="76" id="Ybv-S9-JpJ"/>
+                                </constraints>
+                                <state key="normal" title="Clear Pins"/>
+                                <connections>
+                                    <action selector="clickClear:" destination="EpE-SC-g9R" eventType="touchUpInside" id="a3b-p4-wb2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Gth-Kr-R1X" firstAttribute="trailing" secondItem="U2C-7I-rQd" secondAttribute="trailing" id="0ml-MR-UwF"/>
+                            <constraint firstItem="U2C-7I-rQd" firstAttribute="bottom" secondItem="BLO-SC-0n1" secondAttribute="top" id="1Pb-Ru-rS2"/>
+                            <constraint firstAttribute="trailing" secondItem="U2C-7I-rQd" secondAttribute="trailing" id="Ejb-Hr-Dk8"/>
+                            <constraint firstItem="U2C-7I-rQd" firstAttribute="top" secondItem="jHF-KK-5ad" secondAttribute="bottom" constant="45" id="EnS-iH-OHx"/>
+                            <constraint firstItem="xIj-Ed-OKd" firstAttribute="baseline" secondItem="3pz-bf-gto" secondAttribute="baseline" id="Juw-2Y-mZO"/>
+                            <constraint firstItem="Gth-Kr-R1X" firstAttribute="leading" secondItem="3pz-bf-gto" secondAttribute="trailing" constant="8" symbolic="YES" id="MoI-hw-C5D"/>
+                            <constraint firstItem="3pz-bf-gto" firstAttribute="leading" secondItem="xIj-Ed-OKd" secondAttribute="trailing" constant="18" id="Uey-Pq-BMT"/>
+                            <constraint firstItem="U2C-7I-rQd" firstAttribute="leading" secondItem="LTI-x4-bk2" secondAttribute="leading" id="fOA-Pa-RFC"/>
+                            <constraint firstItem="3pz-bf-gto" firstAttribute="top" secondItem="Gth-Kr-R1X" secondAttribute="top" id="kRc-G2-bgR"/>
+                            <constraint firstItem="U2C-7I-rQd" firstAttribute="top" secondItem="xIj-Ed-OKd" secondAttribute="bottom" constant="8" symbolic="YES" id="l2J-Ko-egW"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Map" id="p2e-kV-D8E" userLabel="Map"/>
+                    <connections>
+                        <outlet property="mapView" destination="U2C-7I-rQd" id="WLH-Eq-kXT"/>
+                        <outlet property="searchField" destination="3pz-bf-gto" id="XRq-Hv-ZCM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hUY-NO-qe8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2455" y="-1887"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="nLp-ph-kN6">
@@ -956,6 +1035,7 @@
                         <segue destination="yhK-tY-Z8S" kind="relationship" relationship="viewControllers" id="MzB-Pk-pvg"/>
                         <segue destination="Ok4-cP-Th6" kind="relationship" relationship="viewControllers" id="UXS-XI-0H4"/>
                         <segue destination="A5M-FQ-w9a" kind="relationship" relationship="viewControllers" id="6Wm-bD-JAB"/>
+                        <segue destination="EpE-SC-g9R" kind="relationship" relationship="viewControllers" id="EOK-hL-22W"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -1214,7 +1294,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="267" height="60"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bf4-VU-WNa" id="bgu-xJ-LUy">
-                                                    <rect key="frame" x="0.0" y="0.0" width="267" height="60"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="267" height="59.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQn-sy-8aF">
@@ -1274,16 +1354,8 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ul9-uE-Otk">
-                                        <rect key="frame" x="17" y="270" width="97" height="30"/>
-                                        <state key="normal" title="Favorite"/>
-                                        <connections>
-                                            <action selector="clickFav:" destination="A5M-FQ-w9a" eventType="touchUpInside" id="1g6-w4-Prv"/>
-                                            <action selector="clickFav:" destination="9pv-A4-QxB" eventType="touchUpInside" id="p9l-U0-EHW"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkX-Hd-Spc">
-                                        <rect key="frame" x="17" y="299" width="97" height="30"/>
+                                        <rect key="frame" x="18" y="270" width="97" height="30"/>
                                         <state key="normal" title="Write Review"/>
                                         <connections>
                                             <action selector="clickWriteReview:" destination="A5M-FQ-w9a" eventType="touchUpInside" id="e7M-co-h5R"/>
@@ -1291,7 +1363,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Et6-oV-W5G">
-                                        <rect key="frame" x="17" y="327" width="98" height="30"/>
+                                        <rect key="frame" x="17" y="302" width="98" height="30"/>
                                         <state key="normal" title="Go to Reviews"/>
                                         <connections>
                                             <action selector="clickGotoReviews:" destination="9pv-A4-QxB" eventType="touchUpInside" id="hQe-rX-s1z"/>
@@ -1299,7 +1371,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tf6-d0-G2p">
-                                        <rect key="frame" x="46" y="232" width="39" height="30"/>
+                                        <rect key="frame" x="17" y="239" width="39" height="30"/>
                                         <state key="normal" title="Menu"/>
                                         <connections>
                                             <action selector="clickMenu:" destination="A5M-FQ-w9a" eventType="touchUpInside" id="5KY-J3-k50"/>
@@ -1324,6 +1396,18 @@
                                         <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2B-ad-cuC">
+                                        <rect key="frame" x="84" y="239" width="30" height="30"/>
+                                        <state key="normal" title="Map"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ul9-uE-Otk">
+                                        <rect key="frame" x="18" y="332" width="97" height="30"/>
+                                        <state key="normal" title="Favorite"/>
+                                        <connections>
+                                            <action selector="clickFav:" destination="A5M-FQ-w9a" eventType="touchUpInside" id="1g6-w4-Prv"/>
+                                            <action selector="clickFav:" destination="9pv-A4-QxB" eventType="touchUpInside" id="p9l-U0-EHW"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -1361,6 +1445,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="UXS-XI-0H4"/>
         <segue reference="6Wm-bD-JAB"/>
+        <segue reference="EOK-hL-22W"/>
         <segue reference="MzB-Pk-pvg"/>
     </inferredMetricsTieBreakers>
 </document>
