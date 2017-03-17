@@ -194,6 +194,7 @@ class fcSearchPageView: UIViewController, UITableViewDelegate, UITableViewDataSo
                         let json = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String: String]
                         dispatch_async(dispatch_get_main_queue(), {
                             print(json)
+                            if(json["found"] == "true") {
                             self.fcName.text = json["fcName"]
                             //self.foodCart = json["fcName"]!
                             self.fcAdd1.text = json["fcAdd1"]
@@ -207,8 +208,9 @@ class fcSearchPageView: UIViewController, UITableViewDelegate, UITableViewDataSo
                             self.fcSat.text = json["fcSat"]
                             self.fcSun.text = json["fcSun"]
                             self.fcRate.text = json["calcRate"]
-                            
                             self.populatePost()
+                            }
+                            
                             //self.getRating() No longer used.
                         });
                         

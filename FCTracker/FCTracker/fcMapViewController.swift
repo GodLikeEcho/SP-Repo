@@ -80,7 +80,7 @@ class fcMapViewController: UIViewController, MKMapViewDelegate {
     }
     
     func get() {
-        let url:NSURL = NSURL(string: "http://www.hvz-go.com/fcPopulateHome.php")!
+        let url:NSURL = NSURL(string: "http://www.hvz-go.com/fcSearchPopulate.php")!
         let session = NSURLSession.sharedSession()
         
         let request = NSMutableURLRequest(URL: url)
@@ -104,7 +104,7 @@ class fcMapViewController: UIViewController, MKMapViewDelegate {
                         let json = try NSJSONSerialization.JSONObjectWithData(data!, options: []) as! [String: String]
                         dispatch_async(dispatch_get_main_queue(), {
                             print(json)
-                            
+                            if(json["found"] == "true") {
                             var addressString:String = ""
                             addressString.appendContentsOf(json["fcAdd1"]!)
                             addressString.appendContentsOf(" ")
@@ -129,6 +129,7 @@ class fcMapViewController: UIViewController, MKMapViewDelegate {
                                         self.addPin(xName, loc: xLoc)
                                     }
                             })
+                            }
 
                         });
                         

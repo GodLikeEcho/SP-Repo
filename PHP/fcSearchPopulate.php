@@ -29,15 +29,7 @@
         $found = "true";
     }
   }
-  //$row0 = mysqli_fetch_array($test0);
-  //$salt0 = $row0['UserName'];
-
-  // if (strcmp($salt0, $UserName) == 0)
-  // {
-  //   $returnValue["Owner"] = "true";
-  //   //echo json_encode($returnValue);
-  //   //return;
-  // }
+  $check = 0;
   if($found == "true")
   {
     $stmt0 = $mysqli->query("SELECT (fcRate/RevCount) AS calcRate FROM FoodCart WHERE UserName = '$UserName'");
@@ -63,6 +55,7 @@
       $returnValue["fcSat"] = $row['fcSat'];
       $returnValue["fcSun"] = $row['fcSun'];
       $returnValue["fcRate"] = $row['fcRate'];
+      $check = 1;
     }
   }
 
@@ -91,10 +84,20 @@
       $returnValue["fcSat"] = $row1['fcSat'];
       $returnValue["fcSun"] = $row1['fcSun'];
       $returnValue["fcRate"] = $row1['fcRate'];
+      $check = 1;
     }
 
   }
 
+  if($check == 0)
+  {
+    $returnValues["found"] = "false";
+    echo json_encode($returnValues);
+    return;
+  }
+  else {
+    $returnValue["found"] = "true";
+  }
 
 
   echo json_encode($returnValue);

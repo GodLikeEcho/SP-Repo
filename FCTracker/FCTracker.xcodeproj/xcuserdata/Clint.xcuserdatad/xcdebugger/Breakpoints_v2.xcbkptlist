@@ -1291,11 +1291,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FCTracker/fcSearchPageView.swift"
-            timestampString = "511388275.723464"
+            timestampString = "511430878.558058"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "324"
-            endingLineNumber = "324"
+            startingLineNumber = "326"
+            endingLineNumber = "326"
             landmarkName = "clickSearch(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -1307,11 +1307,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FCTracker/fcSearchPageView.swift"
-            timestampString = "511387513.674067"
+            timestampString = "511430878.558058"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "255"
-            endingLineNumber = "255"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
             landmarkName = "populatePost()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1323,11 +1323,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FCTracker/fcSearchPageView.swift"
-            timestampString = "511383834.211493"
+            timestampString = "511430878.558058"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "233"
-            endingLineNumber = "233"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
             landmarkName = "populatePost()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1339,11 +1339,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FCTracker/fcSearchPageView.swift"
-            timestampString = "511387513.674067"
+            timestampString = "511430878.558058"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "261"
-            endingLineNumber = "261"
+            startingLineNumber = "263"
+            endingLineNumber = "263"
             landmarkName = "populatePost()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1387,11 +1387,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FCTracker/fcSearchPageView.swift"
-            timestampString = "511387513.674067"
+            timestampString = "511430878.558058"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "260"
-            endingLineNumber = "260"
+            startingLineNumber = "262"
+            endingLineNumber = "262"
             landmarkName = "populatePost()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1403,23 +1403,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FCTracker/fcSearchPageView.swift"
-            timestampString = "511383834.211493"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
-            landmarkName = "populateHome()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FCTracker/fcSearchPageView.swift"
-            timestampString = "511383834.211493"
+            timestampString = "511430360.637678"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "198"
@@ -1435,11 +1419,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FCTracker/fcSearchPageView.swift"
-            timestampString = "511385067.343443"
+            timestampString = "511430360.637678"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "232"
-            endingLineNumber = "232"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
+            landmarkName = "populateHome()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FCTracker/fcSearchPageView.swift"
+            timestampString = "511430878.558058"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "234"
+            endingLineNumber = "234"
             landmarkName = "populatePost()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1451,11 +1451,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FCTracker/fcSearchPageView.swift"
-            timestampString = "511387513.674067"
+            timestampString = "511430878.558058"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "241"
-            endingLineNumber = "241"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
             landmarkName = "populatePost()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1601,6 +1601,70 @@
             startingLineNumber = "609"
             endingLineNumber = "609"
             landmarkName = "clickMap(_:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FCTracker/fcSearchPageView.swift"
+            timestampString = "511430360.637678"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "populateHome()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FCTracker/fcSearchPageView.swift"
+            timestampString = "511430698.106216"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
+            landmarkName = "populateHome()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FCTracker/fcMapViewController.swift"
+            timestampString = "511431647.124939"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "get()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FCTracker/fcMapViewController.swift"
+            timestampString = "511431660.081463"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "get()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
