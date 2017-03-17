@@ -133,7 +133,7 @@ class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         fcFri.userInteractionEnabled = true
         fcSat.userInteractionEnabled = true
         fcSun.userInteractionEnabled = true
-        fcRate.userInteractionEnabled = true
+        //fcRate.userInteractionEnabled = true
     }
     @IBAction func clickSubmit(sender: UIButton) {
         
@@ -598,6 +598,7 @@ class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @IBAction func clickMenu(sender: UIButton) {
+        globalFCSearch = fcName.text!
         let storyBoard : UIStoryboard = self.storyboard!
         let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("menuViewController") as! MenuViewController
         self.presentViewController(resultViewController, animated:true, completion:nil)

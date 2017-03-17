@@ -783,6 +783,13 @@
                                     <action selector="clickSubmit:" destination="VBh-WT-qOf" eventType="touchUpInside" id="4dt-8a-hQK"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ChG-we-W0R">
+                                <rect key="frame" x="58" y="484" width="34" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="clickBack:" destination="VBh-WT-qOf" eventType="touchUpInside" id="nt1-hD-Nep"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -879,9 +886,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PAD-ru-3EC">
-                                <rect key="frame" x="20" y="28" width="126" height="30"/>
+                                <rect key="frame" x="20" y="28" width="118" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="126" id="kbp-jp-jni"/>
+                                    <constraint firstAttribute="width" constant="118" id="b0S-wb-HL5"/>
                                 </constraints>
                                 <state key="normal" title="Select Image"/>
                                 <connections>
@@ -889,9 +896,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dbc-as-60g">
-                                <rect key="frame" x="454" y="28" width="126" height="30"/>
+                                <rect key="frame" x="479" y="28" width="101" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="126" id="6f3-pk-HQX"/>
+                                    <constraint firstAttribute="width" constant="101" id="7wq-eO-uv1"/>
                                 </constraints>
                                 <state key="normal" title="Upload Image"/>
                                 <connections>
@@ -904,24 +911,38 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XJA-oc-P8l">
                                 <rect key="frame" x="20" y="80" width="560" height="500"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6h-1o-Ewr">
+                                <rect key="frame" x="420" y="28" width="51" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="51" id="BBG-7V-j3W"/>
+                                </constraints>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="clickBack:" destination="cny-ag-bbq" eventType="touchUpInside" id="k9z-UF-jvb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="XJA-oc-P8l" secondAttribute="bottom" constant="20" symbolic="YES" id="3DX-Ri-jSM"/>
-                            <constraint firstItem="PAD-ru-3EC" firstAttribute="baseline" secondItem="dbc-as-60g" secondAttribute="baseline" id="3oG-Kr-TBr"/>
-                            <constraint firstItem="XJA-oc-P8l" firstAttribute="top" secondItem="PAD-ru-3EC" secondAttribute="bottom" constant="22" id="ATb-lF-PvY"/>
-                            <constraint firstItem="dbc-as-60g" firstAttribute="trailing" secondItem="XJA-oc-P8l" secondAttribute="trailing" id="G3j-Rc-ut1"/>
-                            <constraint firstItem="PAD-ru-3EC" firstAttribute="leading" secondItem="l57-d9-8gy" secondAttribute="leadingMargin" id="MtP-Xb-Hl2"/>
-                            <constraint firstItem="PAD-ru-3EC" firstAttribute="leading" secondItem="XJA-oc-P8l" secondAttribute="leading" id="VvZ-RO-crY"/>
-                            <constraint firstItem="PAD-ru-3EC" firstAttribute="top" secondItem="0Gh-46-NB2" secondAttribute="bottom" constant="8" symbolic="YES" id="XO3-a8-fw7"/>
-                            <constraint firstItem="sZT-Du-HL2" firstAttribute="centerX" secondItem="XJA-oc-P8l" secondAttribute="centerX" id="ZSD-xu-zLt"/>
-                            <constraint firstItem="dbc-as-60g" firstAttribute="trailing" secondItem="l57-d9-8gy" secondAttribute="trailingMargin" id="rmt-8r-yhZ"/>
-                            <constraint firstItem="PAD-ru-3EC" firstAttribute="centerY" secondItem="sZT-Du-HL2" secondAttribute="centerY" id="uzo-Kc-UfT"/>
+                            <constraint firstItem="PAD-ru-3EC" firstAttribute="leading" secondItem="XJA-oc-P8l" secondAttribute="leading" id="2QF-jQ-vA5"/>
+                            <constraint firstAttribute="bottom" secondItem="XJA-oc-P8l" secondAttribute="bottom" constant="20" symbolic="YES" id="G9z-6d-90j"/>
+                            <constraint firstItem="dbc-as-60g" firstAttribute="leading" secondItem="B6h-1o-Ewr" secondAttribute="trailing" constant="8" symbolic="YES" id="Kzj-Vl-0xt"/>
+                            <constraint firstItem="sZT-Du-HL2" firstAttribute="centerX" secondItem="XJA-oc-P8l" secondAttribute="centerX" id="Qv9-gp-0Od"/>
+                            <constraint firstItem="dbc-as-60g" firstAttribute="trailing" secondItem="XJA-oc-P8l" secondAttribute="trailing" id="SYN-7B-aeo"/>
+                            <constraint firstItem="B6h-1o-Ewr" firstAttribute="baseline" secondItem="dbc-as-60g" secondAttribute="baseline" id="VSF-tH-RVS"/>
+                            <constraint firstItem="PAD-ru-3EC" firstAttribute="leading" secondItem="l57-d9-8gy" secondAttribute="leadingMargin" id="dQg-1I-gQH"/>
+                            <constraint firstItem="XJA-oc-P8l" firstAttribute="top" secondItem="PAD-ru-3EC" secondAttribute="bottom" constant="22" id="dgh-Gq-jvT"/>
+                            <constraint firstItem="PAD-ru-3EC" firstAttribute="top" secondItem="0Gh-46-NB2" secondAttribute="bottom" constant="8" symbolic="YES" id="fZF-dv-LMa"/>
+                            <constraint firstItem="PAD-ru-3EC" firstAttribute="baseline" secondItem="B6h-1o-Ewr" secondAttribute="baseline" id="hTb-sd-B1N"/>
+                            <constraint firstItem="sZT-Du-HL2" firstAttribute="centerY" secondItem="B6h-1o-Ewr" secondAttribute="centerY" id="ppt-Io-xra"/>
+                            <constraint firstItem="dbc-as-60g" firstAttribute="trailing" secondItem="l57-d9-8gy" secondAttribute="trailingMargin" id="xYH-wF-8ZS"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="myActivityIndicator" destination="sZT-Du-HL2" id="Azm-t5-jzW"/>
                         <outlet property="myImageView" destination="XJA-oc-P8l" id="iOC-D8-Laz"/>
+                        <outlet property="selectImageButton" destination="PAD-ru-3EC" id="YjB-t0-a38"/>
+                        <outlet property="uploadImageButton" destination="dbc-as-60g" id="Fx6-yM-PFp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pVZ-6n-lAs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1399,6 +1420,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2B-ad-cuC">
                                         <rect key="frame" x="84" y="239" width="30" height="30"/>
                                         <state key="normal" title="Map"/>
+                                        <connections>
+                                            <action selector="clickMap:" destination="A5M-FQ-w9a" eventType="touchUpInside" id="txs-pJ-fh5"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ul9-uE-Otk">
                                         <rect key="frame" x="18" y="332" width="97" height="30"/>

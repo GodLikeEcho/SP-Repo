@@ -327,5 +327,10 @@ class fcSearchPageView: UIViewController, UITableViewDelegate, UITableViewDataSo
         populateHome()
     }
     
+    @IBAction func clickMap(sender: UIButton) {
+        globalFCSearch = fcName.text!
+        print(globalFCSearch)
+        tabBarController?.selectedIndex = 4
+    }
 }
 

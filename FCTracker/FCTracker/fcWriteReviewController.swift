@@ -176,5 +176,20 @@ class fcWriteReviewController: UIViewController {
         
     }
 
+    @IBAction func clickBack(sender: UIButton) {
+        if globalUserLevel == "f" {
+            let storyBoard : UIStoryboard = self.storyboard!
+            let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("FCTab") as! UITabBarController
+            self.presentViewController(resultViewController, animated:true, completion:nil)
+            
+        }
+        else {
+            let storyBoard : UIStoryboard = self.storyboard!
+            let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("UTab") as! UITabBarController
+            self.presentViewController(resultViewController, animated:true, completion:nil)
+        }
+
+    }
+ 
 
 }

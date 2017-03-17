@@ -10,14 +10,23 @@ import UIKit
 
 class MenuViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    
+    var fcOwner = false
+    @IBOutlet var uploadImageButton: UIButton!
+    @IBOutlet var selectImageButton: UIButton!
     @IBOutlet var myImageView: UIImageView!
     @IBOutlet var myActivityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        myImageView.imageFromUrl("http://hvz-go.com/Images/fc.jpg")
-        
+//        uploadImageButton.hidden = true
+//        selectImageButton.hidden = true
+        checkOwner()
+        var theurl:String = "http://hvz-go.com/Images/"
+        theurl.appendContentsOf(globalFCSearch)
+        theurl.appendContentsOf(".jpg")
+        print(theurl)
+        myImageView.imageFromUrl(theurl)
+        //"http://hvz-go.com/Images/fc.jpg"
     }
     
     override func didReceiveMemoryWarning() {
@@ -93,7 +102,7 @@ class MenuViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 
                 dispatch_async(dispatch_get_main_queue(),{
                     self.myActivityIndicator.stopAnimating()
-                    self.myImageView.image = nil;
+                    //self.myImageView.image = nil;
                 });
                 
             }catch
@@ -118,8 +127,9 @@ class MenuViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             }
         }
         
-        var filename = globalUserName //".jpg"
+        var filename = globalFCSearch //".jpg"
         filename.appendContentsOf(".jpg")
+        print(filename)
         let mimetype = "image/jpg"
         
         body.appendString("--\(boundary)\r\n")
@@ -142,7 +152,71 @@ class MenuViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
     }
     
+    @IBAction func clickBack(sender: UIButton) {
+        if globalUserLevel == "f" {
+            let storyBoard : UIStoryboard = self.storyboard!
+            let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("FCTab") as! UITabBarController
+            self.presentViewController(resultViewController, animated:true, completion:nil)
 
+        }
+        else {
+            let storyBoard : UIStoryboard = self.storyboard!
+            let resultViewController = storyBoard.instantiateViewControllerWithIdentifier("UTab") as! UITabBarController
+            self.presentViewController(resultViewController, animated:true, completion:nil)
+        }
+    }
+    
+    func checkOwner() {
+        
+        let url:NSURL = NSURL(string: "http://www.hvz-go.com/fcCheckOwner.php")!
+        let session = NSURLSession.sharedSession()
+        
+        let request = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "POST"
+        request.cachePolicy = NSURLRequestCachePolicy.ReloadIgnoringCacheData
+        
+        
+        //let data = "data=Hi".dataUsingEncoding(NSUTF8StringEncoding)
+        let dictionary = ["UserName": globalUserName, "fcName": globalFCSearch]
+        do{
+            let data = try NSJSONSerialization.dataWithJSONObject(dictionary, options: .PrettyPrinted)
+            //let json = NSString(data: data, encoding: NSUTF8StringEncoding)
+            
+            let task = session.uploadTaskWithRequest(request, fromData: data, completionHandler:
+                {(data,response,error) in
+                    
+                    guard let _:NSData = data, let _:NSURLResponse = response  where error == nil else {
+                        print("error")
+                        return
+                    }
+                    
+                    let dataString = NSString(data: data!, encoding: NSUTF8StringEncoding)
+                    print(dataString)
+                    dispatch_async(dispatch_get_main_queue(), {
+                    if (dataString == "\"true\"") {
+                        //self.fcOwner = true
+                        self.uploadImageButton.hidden = false
+                        self.selectImageButton.hidden = false
+                    }
+                    else {
+                        self.uploadImageButton.hidden = true
+                        self.selectImageButton.hidden = true
+                        
+                    }
+                });
+                    
+                }
+            );
+            
+            task.resume()
+        }
+        catch {
+            
+            print("error")
+            //Access error here
+        }
+        
+    }
 }
 
 extension NSMutableData {
@@ -166,5 +240,3 @@ extension UIImageView {
         }
     }
 }
-
-
