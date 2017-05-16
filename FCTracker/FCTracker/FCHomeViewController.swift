@@ -87,12 +87,6 @@ class FCHomeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
         return cell
-//        //let item = items[indexPath.row]
-//        cell.textLabel?.text = "Item: \(items[indexPath.row])"
-//        cell.textLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
-//        cell.textLabel?.numberOfLines = 0;
-//        
-//        return cell
     }
     
     

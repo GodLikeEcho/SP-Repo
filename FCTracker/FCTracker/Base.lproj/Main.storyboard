@@ -23,7 +23,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ko3-9v-9GN">
                                 <rect key="frame" x="20" y="195" width="110" height="31"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Log Out"/>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="clickLogOut:" destination="yhK-tY-Z8S" eventType="touchUpInside" id="knJ-72-ZQo"/>
                                 </connections>
@@ -63,7 +65,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="293" height="90"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KT5-OI-kWN" id="29B-wg-00X">
-                                                    <rect key="frame" x="0.0" y="0.0" width="293" height="89.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="293" height="89"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikX-8h-6LM">
@@ -124,7 +126,7 @@
                                             <constraint firstAttribute="height" constant="40" id="FK6-Np-UX8"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Reviews:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGX-8q-660">
@@ -133,7 +135,7 @@
                                             <constraint firstAttribute="height" constant="40" id="2dj-JP-Y5Q"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News Feed:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CiW-yF-qk9">
@@ -142,7 +144,7 @@
                                             <constraint firstAttribute="height" constant="40" id="h5z-eF-kOn"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pXu-mO-CTy">
@@ -156,7 +158,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="293" height="60"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sYW-K4-kvM" id="tpb-7M-qZy">
-                                                    <rect key="frame" x="0.0" y="0.0" width="293" height="59.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="293" height="59"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ViM-Uh-UrA">
@@ -206,7 +208,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="352" height="75"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3DQ-ej-avA" id="M0T-kP-bP1">
-                                                    <rect key="frame" x="0.0" y="0.0" width="352" height="74.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="352" height="74"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sN6-Ko-0pQ">
@@ -346,7 +348,9 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="21o-Qk-Fe5">
                                 <rect key="frame" x="536" y="28" width="30" height="30"/>
-                                <state key="normal" title="Find"/>
+                                <state key="normal" title="Find">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="clickFind:" destination="Ok4-cP-Th6" eventType="touchUpInside" id="hdl-Ib-ImI"/>
                                 </connections>
@@ -359,7 +363,7 @@
                                         <rect key="frame" x="0.0" y="28" width="560" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="IK2-An-aq3" id="zdx-3D-Nap">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="74.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="74"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SR4-vJ-Ylo">
@@ -423,7 +427,6 @@
                                     <constraint firstAttribute="width" constant="84" id="EbC-j8-NbW"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -593,7 +596,9 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fee-QS-ciR">
                                         <rect key="frame" x="20" y="328" width="72" height="36"/>
-                                        <state key="normal" title="Edit"/>
+                                        <state key="normal" title="Edit">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="clickEdit:" destination="9pv-A4-QxB" eventType="touchUpInside" id="TL2-iF-MzJ"/>
                                         </connections>
@@ -611,7 +616,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="369" height="60"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f82-ei-cL6" id="zHi-uf-rdO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="369" height="59.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="369" height="59"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQp-wU-6Pt">
@@ -663,42 +668,54 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dk6-xf-6rk">
                                         <rect key="frame" x="21" y="262" width="97" height="30"/>
-                                        <state key="normal" title="Write Review"/>
+                                        <state key="normal" title="Write Review">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="clickWriteReview:" destination="9pv-A4-QxB" eventType="touchUpInside" id="TPf-VJ-1XQ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldF-NG-bUP">
                                         <rect key="frame" x="21" y="290" width="98" height="30"/>
-                                        <state key="normal" title="Go to Reviews"/>
+                                        <state key="normal" title="Go to Reviews">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="clickGotoReviews:" destination="9pv-A4-QxB" eventType="touchUpInside" id="4lY-O8-GhB"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="00d-Te-voE">
                                         <rect key="frame" x="22" y="205" width="39" height="30"/>
-                                        <state key="normal" title="Menu"/>
+                                        <state key="normal" title="Menu">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="clickMenu:" destination="9pv-A4-QxB" eventType="touchUpInside" id="613-07-7R9"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3or-Z1-3ml">
                                         <rect key="frame" x="80" y="205" width="30" height="30"/>
-                                        <state key="normal" title="Map"/>
+                                        <state key="normal" title="Map">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="clickMap:" destination="9pv-A4-QxB" eventType="touchUpInside" id="CWS-ot-VkR"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8tB-dC-ZIS">
                                         <rect key="frame" x="20" y="238" width="97" height="30"/>
-                                        <state key="normal" title="Favorite"/>
+                                        <state key="normal" title="Favorite">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="clickFav:" destination="9pv-A4-QxB" eventType="touchUpInside" id="WLI-iT-sYM"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bpV-w5-cWE">
                                         <rect key="frame" x="100" y="328" width="72" height="36"/>
-                                        <state key="normal" title="Submit"/>
+                                        <state key="normal" title="Submit">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="clickSubmit:" destination="9pv-A4-QxB" eventType="touchUpInside" id="89j-vH-09y"/>
                                         </connections>
@@ -757,6 +774,7 @@
                                     <segment title="4 Stars"/>
                                     <segment title="5 Stars"/>
                                 </segments>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="clickStars:" destination="VBh-WT-qOf" eventType="valueChanged" id="PU3-KU-U7e"/>
                                 </connections>
@@ -775,14 +793,18 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ClM-nK-cvL">
                                 <rect key="frame" x="323" y="479" width="49" height="30"/>
-                                <state key="normal" title="Submit"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="clickSubmit:" destination="VBh-WT-qOf" eventType="touchUpInside" id="4dt-8a-hQK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ChG-we-W0R">
                                 <rect key="frame" x="26" y="479" width="34" height="30"/>
-                                <state key="normal" title="Back"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="clickBack:" destination="VBh-WT-qOf" eventType="touchUpInside" id="nt1-hD-Nep"/>
                                 </connections>
@@ -830,7 +852,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="72" id="MQk-Hd-jJo"/>
                                 </constraints>
-                                <state key="normal" title="Search"/>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="clickSearch:" destination="EpE-SC-g9R" eventType="touchUpInside" id="7X9-0G-Tj1"/>
                                 </connections>
@@ -840,7 +864,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="76" id="Ybv-S9-JpJ"/>
                                 </constraints>
-                                <state key="normal" title="Clear Pins"/>
+                                <state key="normal" title="Clear Pins">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="clickClear:" destination="EpE-SC-g9R" eventType="touchUpInside" id="a3b-p4-wb2"/>
                                 </connections>
@@ -887,7 +913,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="118" id="b0S-wb-HL5"/>
                                 </constraints>
-                                <state key="normal" title="Select Image"/>
+                                <state key="normal" title="Select Image">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="clickSelectImage:" destination="cny-ag-bbq" eventType="touchUpInside" id="P88-ep-JvR"/>
                                 </connections>
@@ -897,7 +925,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="101" id="7wq-eO-uv1"/>
                                 </constraints>
-                                <state key="normal" title="Upload Image"/>
+                                <state key="normal" title="Upload Image">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="clickUploadImage:" destination="cny-ag-bbq" eventType="touchUpInside" id="xY4-ic-4Nn"/>
                                 </connections>
@@ -910,7 +940,9 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="51" id="BBG-7V-j3W"/>
                                 </constraints>
-                                <state key="normal" title="Back"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="clickBack:" destination="cny-ag-bbq" eventType="touchUpInside" id="k9z-UF-jvb"/>
                                 </connections>
@@ -965,7 +997,7 @@
                                         <rect key="frame" x="0.0" y="28" width="374" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G9e-iv-T90" id="wE3-YY-4oV">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Food Cart Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sm1-xM-Y2J">
@@ -1021,7 +1053,9 @@
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gek-lr-7Ug">
                                 <rect key="frame" x="20" y="20" width="34" height="30"/>
-                                <state key="normal" title="Back"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="clickBack:" destination="noZ-bI-1bc" eventType="touchUpInside" id="v4b-k4-NiX"/>
                                 </connections>
@@ -1079,7 +1113,9 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwx-m7-NHD">
                                 <rect key="frame" x="57" y="493" width="120" height="30"/>
-                                <state key="normal" title="Create Account"/>
+                                <state key="normal" title="Create Account">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="clickCreateAccount:" destination="Qx9-vM-LWh" eventType="touchUpInside" id="cSh-My-PGQ"/>
                                 </connections>
@@ -1107,7 +1143,9 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="en4-uT-57p">
                                 <rect key="frame" x="229" y="493" width="103" height="30"/>
-                                <state key="normal" title="Login"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="clickLogin:" destination="Qx9-vM-LWh" eventType="touchUpInside" id="LnB-wn-twI"/>
                                 </connections>
@@ -1160,40 +1198,45 @@
                                     <segment title="User Account"/>
                                     <segment title="Food Cart Account"/>
                                 </segments>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="clickSecCon:" destination="TuP-ab-8qu" eventType="valueChanged" id="cbH-Pf-APK"/>
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tFk-zF-ISw">
                                 <rect key="frame" x="146" y="352" width="85" height="30"/>
-                                <state key="normal" title="Submit"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="clickSubmit:" destination="TuP-ab-8qu" eventType="touchUpInside" id="ITE-Ka-Zf7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9p6-wX-2Ul">
                                 <rect key="frame" x="285" y="352" width="79" height="30"/>
-                                <state key="normal" title="Back"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="clickBack:" destination="TuP-ab-8qu" eventType="touchUpInside" id="tQd-UL-fA9"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UserName" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mre-3U-tXD">
                                 <rect key="frame" x="82" y="169" width="100" height="30"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUC-Be-m8y">
-                                <rect key="frame" x="82" y="271" width="100" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXF-hm-XMn">
                                 <rect key="frame" x="82" y="219" width="100" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lUC-Be-m8y">
+                                <rect key="frame" x="82" y="271" width="100" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -1317,7 +1360,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="365" height="60"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bf4-VU-WNa" id="bgu-xJ-LUy">
-                                                    <rect key="frame" x="0.0" y="0.0" width="365" height="59.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="365" height="59"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="UserName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQn-sy-8aF">
@@ -1379,7 +1422,9 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkX-Hd-Spc">
                                         <rect key="frame" x="18" y="270" width="97" height="30"/>
-                                        <state key="normal" title="Write Review"/>
+                                        <state key="normal" title="Write Review">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="clickWriteReview:" destination="A5M-FQ-w9a" eventType="touchUpInside" id="e7M-co-h5R"/>
                                             <action selector="clickWriteReview:" destination="9pv-A4-QxB" eventType="touchUpInside" id="fup-9V-fve"/>
@@ -1387,7 +1432,9 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Et6-oV-W5G">
                                         <rect key="frame" x="17" y="302" width="98" height="30"/>
-                                        <state key="normal" title="Go to Reviews"/>
+                                        <state key="normal" title="Go to Reviews">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="clickGotoReviews:" destination="9pv-A4-QxB" eventType="touchUpInside" id="hQe-rX-s1z"/>
                                             <action selector="clickGotoReviews:" destination="A5M-FQ-w9a" eventType="touchUpInside" id="ygB-rz-bJm"/>
@@ -1395,7 +1442,9 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tf6-d0-G2p">
                                         <rect key="frame" x="17" y="239" width="39" height="30"/>
-                                        <state key="normal" title="Menu"/>
+                                        <state key="normal" title="Menu">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="clickMenu:" destination="A5M-FQ-w9a" eventType="touchUpInside" id="5KY-J3-k50"/>
                                             <action selector="clickMenu:" destination="9pv-A4-QxB" eventType="touchUpInside" id="bIZ-cS-vKc"/>
@@ -1408,7 +1457,9 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJ5-Iq-hA7">
                                         <rect key="frame" x="318" y="8" width="74" height="30"/>
-                                        <state key="normal" title="Search"/>
+                                        <state key="normal" title="Search">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="clickSearch:" destination="A5M-FQ-w9a" eventType="touchUpInside" id="4yL-Uo-Z9Y"/>
                                         </connections>
@@ -1416,19 +1467,23 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Find Cart:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VhH-bA-xhX">
                                         <rect key="frame" x="121" y="8" width="84" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2B-ad-cuC">
                                         <rect key="frame" x="84" y="239" width="30" height="30"/>
-                                        <state key="normal" title="Map"/>
+                                        <state key="normal" title="Map">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="clickMap:" destination="A5M-FQ-w9a" eventType="touchUpInside" id="txs-pJ-fh5"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ul9-uE-Otk">
                                         <rect key="frame" x="18" y="332" width="97" height="30"/>
-                                        <state key="normal" title="Favorite"/>
+                                        <state key="normal" title="Favorite">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="clickFav:" destination="A5M-FQ-w9a" eventType="touchUpInside" id="1g6-w4-Prv"/>
                                             <action selector="clickFav:" destination="9pv-A4-QxB" eventType="touchUpInside" id="p9l-U0-EHW"/>
